@@ -16,19 +16,24 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
     [self toggleHiddenState:YES];
     self.lblLoginStatus.text = @"";
     
-    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    self.loginButton.delegate = self;
+    self.loginButton.readPermissions = @[@"public_profile", @"email"];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - Private method implementation
 
@@ -101,4 +106,8 @@
     }
 }
 
+
 @end
+
+
+

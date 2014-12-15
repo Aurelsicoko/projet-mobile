@@ -14,7 +14,7 @@
 		6585729B1A3F316C00B3A6B8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6585729A1A3F316C00B3A6B8 /* Images.xcassets */; };
 		6585729E1A3F316C00B3A6B8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6585729C1A3F316C00B3A6B8 /* LaunchScreen.xib */; };
 		658572AA1A3F316C00B3A6B8 /* chopachoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 658572A91A3F316C00B3A6B8 /* chopachoTests.m */; };
-		658572B61A3F356D00B3A6B8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658572B51A3F356D00B3A6B8 /* FacebookSDK.framework */; };
+		6587E7811A3F5D800084EDC1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6587E7801A3F5D800084EDC1 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,7 @@
 		658572A31A3F316C00B3A6B8 /* chopachoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chopachoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		658572A81A3F316C00B3A6B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		658572A91A3F316C00B3A6B8 /* chopachoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chopachoTests.m; sourceTree = "<group>"; };
-		658572B51A3F356D00B3A6B8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../FacebookSDK.framework; sourceTree = "<group>"; };
+		6587E7801A3F5D800084EDC1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				658572B61A3F356D00B3A6B8 /* FacebookSDK.framework in Frameworks */,
+				6587E7811A3F5D800084EDC1 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +66,7 @@
 		658572811A3F316C00B3A6B8 = {
 			isa = PBXGroup;
 			children = (
-				658572B51A3F356D00B3A6B8 /* FacebookSDK.framework */,
+				6587E7801A3F5D800084EDC1 /* FacebookSDK.framework */,
 				6585728C1A3F316C00B3A6B8 /* chopacho */,
 				658572A61A3F316C00B3A6B8 /* chopachoTests */,
 				6585728B1A3F316C00B3A6B8 /* Products */,
@@ -428,6 +428,7 @@
 				658572AF1A3F316C00B3A6B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		658572B01A3F316C00B3A6B8 /* Build configuration list for PBXNativeTarget "chopachoTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +437,7 @@
 				658572B21A3F316C00B3A6B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

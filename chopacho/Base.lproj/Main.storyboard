@@ -7,7 +7,6 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
@@ -48,10 +47,11 @@
                         <outlet property="lblEmail" destination="XqP-z8-vIT" id="bkn-nD-TgI"/>
                         <outlet property="lblLoginStatus" destination="wSp-J0-UEg" id="kPP-Th-fMk"/>
                         <outlet property="lblUsername" destination="hbc-gC-q80" id="Dgr-Hw-t6L"/>
-                        <outlet property="loginView" destination="SUc-bg-Nn1" id="WvD-1g-L2y"/>
+                        <outlet property="loginButton" destination="SUc-bg-Nn1" id="7pv-lU-f7G"/>
                         <outlet property="profilePicture" destination="nMN-sy-m58" id="L3U-qO-1k4"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
