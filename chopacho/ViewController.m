@@ -68,36 +68,33 @@
 }
 
 
-- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
-{
+// Handle possible errors that can occur during login
+- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
     NSString *alertMessage, *alertTitle;
     
-    if ([FBErrorUtility shouldNotifyUserForError:error])
-    {
+    // If the user should perform an action outside of you app to recover
+    if ([FBErrorUtility shouldNotifyUserForError:error]) {
         alertTitle = @"Facebook error";
         alertMessage = [FBErrorUtility userMessageForError:error];
         
-    }
-    else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryAuthenticationReopenSession)
-    {
+        // This code will handle session closures that happen outside of the app
+        // https://developers.facebook.com/docs/ios/errors
+    } else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryAuthenticationReopenSession) {
         alertTitle = @"Session Error";
         alertMessage = @"Your current session is no longer valid. Please log in again.";
         
-    }
-    else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryUserCancelled)
-    {
+        // If the user has cancelled a login, we will do nothing.
+    } else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryUserCancelled) {
         NSLog(@"user cancelled login");
         
-    }
-    else
-    {
+        // For simplicity, this sample handles other errors with a generic message
+    } else {
         alertTitle  = @"Something went wrong";
         alertMessage = @"Please try again later.";
         NSLog(@"Unexpected error:%@", error);
     }
     
-    if (alertMessage)
-    {
+    if (alertMessage) {
         [[[UIAlertView alloc] initWithTitle:alertTitle
                                     message:alertMessage
                                    delegate:nil
@@ -105,7 +102,6 @@
                           otherButtonTitles:nil] show];
     }
 }
-
 
 @end
 
