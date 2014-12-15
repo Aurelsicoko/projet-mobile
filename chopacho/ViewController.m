@@ -49,7 +49,8 @@
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{
     self.lblLoginStatus.text = @"You are logged in.";
     
-    [self toggleHiddenState:NO];
+    [self performSelector:@selector(showMainMenu) withObject:nil];
+    /*[self toggleHiddenState:NO];*/
 }
 
 
@@ -101,6 +102,10 @@
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil] show];
     }
+}
+
+- (void)showMainMenu {
+    [self performSegueWithIdentifier:@"ShowMainMenu" sender:self];
 }
 
 @end
