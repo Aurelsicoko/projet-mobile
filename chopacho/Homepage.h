@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface homepage : UIViewController
+@interface Homepage : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIButton *btnAddEvent;
 

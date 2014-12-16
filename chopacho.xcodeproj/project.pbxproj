@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		653E92D01A402FF100D54665 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653E92CF1A402FF100D54665 /* AddEventViewController.m */; };
 		658572901A3F316C00B3A6B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6585728F1A3F316C00B3A6B8 /* main.m */; };
 		658572931A3F316C00B3A6B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 658572921A3F316C00B3A6B8 /* AppDelegate.m */; };
 		658572961A3F316C00B3A6B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 658572951A3F316C00B3A6B8 /* ViewController.m */; };
@@ -15,7 +16,7 @@
 		6585729E1A3F316C00B3A6B8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6585729C1A3F316C00B3A6B8 /* LaunchScreen.xib */; };
 		658572AA1A3F316C00B3A6B8 /* chopachoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 658572A91A3F316C00B3A6B8 /* chopachoTests.m */; };
 		6587E7811A3F5D800084EDC1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6587E7801A3F5D800084EDC1 /* FacebookSDK.framework */; };
-		6587E7841A3F8AA20084EDC1 /* homepage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587E7831A3F8AA20084EDC1 /* homepage.m */; };
+		6587E7841A3F8AA20084EDC1 /* Homepage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587E7831A3F8AA20084EDC1 /* Homepage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		653E92CE1A402FF100D54665 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
+		653E92CF1A402FF100D54665 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
 		6585728A1A3F316C00B3A6B8 /* chopacho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chopacho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6585728E1A3F316C00B3A6B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6585728F1A3F316C00B3A6B8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,8 +46,8 @@
 		658572A81A3F316C00B3A6B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		658572A91A3F316C00B3A6B8 /* chopachoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = chopachoTests.m; sourceTree = "<group>"; };
 		6587E7801A3F5D800084EDC1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		6587E7821A3F8AA20084EDC1 /* homepage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homepage.h; sourceTree = "<group>"; };
-		6587E7831A3F8AA20084EDC1 /* homepage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homepage.m; sourceTree = "<group>"; };
+		6587E7821A3F8AA20084EDC1 /* Homepage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Homepage.h; sourceTree = "<group>"; };
+		6587E7831A3F8AA20084EDC1 /* Homepage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Homepage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,11 +93,13 @@
 			children = (
 				658572911A3F316C00B3A6B8 /* AppDelegate.h */,
 				658572921A3F316C00B3A6B8 /* AppDelegate.m */,
-				6587E7821A3F8AA20084EDC1 /* homepage.h */,
-				6587E7831A3F8AA20084EDC1 /* homepage.m */,
+				6587E7821A3F8AA20084EDC1 /* Homepage.h */,
+				6587E7831A3F8AA20084EDC1 /* Homepage.m */,
 				658572941A3F316C00B3A6B8 /* ViewController.h */,
 				658572951A3F316C00B3A6B8 /* ViewController.m */,
 				658572971A3F316C00B3A6B8 /* Main.storyboard */,
+				653E92CE1A402FF100D54665 /* AddEventViewController.h */,
+				653E92CF1A402FF100D54665 /* AddEventViewController.m */,
 				6585729A1A3F316C00B3A6B8 /* Images.xcassets */,
 				6585729C1A3F316C00B3A6B8 /* LaunchScreen.xib */,
 				6585728D1A3F316C00B3A6B8 /* Supporting Files */,
@@ -230,8 +235,9 @@
 			files = (
 				658572961A3F316C00B3A6B8 /* ViewController.m in Sources */,
 				658572931A3F316C00B3A6B8 /* AppDelegate.m in Sources */,
+				653E92D01A402FF100D54665 /* AddEventViewController.m in Sources */,
 				658572901A3F316C00B3A6B8 /* main.m in Sources */,
-				6587E7841A3F8AA20084EDC1 /* homepage.m in Sources */,
+				6587E7841A3F8AA20084EDC1 /* Homepage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

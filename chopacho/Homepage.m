@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 hetic. All rights reserved.
 //
 
-#import "homepage.h"
+#import "Homepage.h"
 
-@interface homepage ()
+@interface Homepage ()
 
 @end
 
-@implementation homepage
+@implementation Homepage
 
 - (void)viewDidLoad {
     [super viewDidLoad];
