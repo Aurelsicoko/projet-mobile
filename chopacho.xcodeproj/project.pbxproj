@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D494E701A40764B006A3030 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D494E6E1A40764B006A3030 /* CFNetwork.framework */; };
+		0D494E711A40764B006A3030 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D494E6F1A40764B006A3030 /* CoreData.framework */; };
 		653E92D01A402FF100D54665 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653E92CF1A402FF100D54665 /* AddEventViewController.m */; };
 		658572901A3F316C00B3A6B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6585728F1A3F316C00B3A6B8 /* main.m */; };
 		658572931A3F316C00B3A6B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 658572921A3F316C00B3A6B8 /* AppDelegate.m */; };
@@ -20,6 +22,48 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0D494E791A4076C8006A3030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D494E721A4076C7006A3030 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		0D494E7B1A4076C8006A3030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D494E721A4076C7006A3030 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		0D494E7D1A4076C8006A3030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D494E721A4076C7006A3030 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		0D494E7F1A4076C8006A3030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D494E721A4076C7006A3030 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		0D494E811A40779E006A3030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D494E721A4076C7006A3030 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		0D494E831A407991006A3030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D494E721A4076C7006A3030 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160E61145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
 		658572A41A3F316C00B3A6B8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 658572821A3F316C00B3A6B8 /* Project object */;
@@ -30,6 +74,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D494E6E1A40764B006A3030 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0D494E6F1A40764B006A3030 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0D494E721A4076C7006A3030 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		653E92CE1A402FF100D54665 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
 		653E92CF1A402FF100D54665 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
 		6585728A1A3F316C00B3A6B8 /* chopacho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chopacho.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D494E701A40764B006A3030 /* CFNetwork.framework in Frameworks */,
+				0D494E711A40764B006A3030 /* CoreData.framework in Frameworks */,
 				6587E7811A3F5D800084EDC1 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,9 +118,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D494E731A4076C7006A3030 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0D494E7A1A4076C8006A3030 /* libRestKit.a */,
+				0D494E7C1A4076C8006A3030 /* RestKitTests.xctest */,
+				0D494E7E1A4076C8006A3030 /* RestKit.framework */,
+				0D494E801A4076C8006A3030 /* RestKitFrameworkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		658572811A3F316C00B3A6B8 = {
 			isa = PBXGroup;
 			children = (
+				0D494E721A4076C7006A3030 /* RestKit.xcodeproj */,
+				0D494E6E1A40764B006A3030 /* CFNetwork.framework */,
+				0D494E6F1A40764B006A3030 /* CoreData.framework */,
 				6587E7801A3F5D800084EDC1 /* FacebookSDK.framework */,
 				6585728C1A3F316C00B3A6B8 /* chopacho */,
 				658572A61A3F316C00B3A6B8 /* chopachoTests */,
@@ -147,6 +210,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				0D494E841A407991006A3030 /* PBXTargetDependency */,
+				0D494E821A40779E006A3030 /* PBXTargetDependency */,
 			);
 			name = chopacho;
 			productName = chopacho;
@@ -200,6 +265,12 @@
 			mainGroup = 658572811A3F316C00B3A6B8;
 			productRefGroup = 6585728B1A3F316C00B3A6B8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0D494E731A4076C7006A3030 /* Products */;
+					ProjectRef = 0D494E721A4076C7006A3030 /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				658572891A3F316C00B3A6B8 /* chopacho */,
@@ -207,6 +278,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0D494E7A1A4076C8006A3030 /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = 0D494E791A4076C8006A3030 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0D494E7C1A4076C8006A3030 /* RestKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.xctest;
+			remoteRef = 0D494E7B1A4076C8006A3030 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0D494E7E1A4076C8006A3030 /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = 0D494E7D1A4076C8006A3030 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0D494E801A4076C8006A3030 /* RestKitFrameworkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.xctest;
+			remoteRef = 0D494E7F1A4076C8006A3030 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		658572881A3F316C00B3A6B8 /* Resources */ = {
@@ -252,6 +354,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0D494E821A40779E006A3030 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 0D494E811A40779E006A3030 /* PBXContainerItemProxy */;
+		};
+		0D494E841A407991006A3030 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKitFramework;
+			targetProxy = 0D494E831A407991006A3030 /* PBXContainerItemProxy */;
+		};
 		658572A51A3F316C00B3A6B8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 658572891A3F316C00B3A6B8 /* chopacho */;

@@ -10,6 +10,18 @@
 	<string>chopacho</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>47A63E07BF2C4AE0426F985EBA351C687092A209</key>
+		<string>https://github.com/blakewatters/TransitionKit.git</string>
+		<key>822670D72DA6CB3E094E900F0D31C5A6027736AD</key>
+		<string>https://github.com/blakewatters/ISO8601DateFormatterValueTransformer.git</string>
+		<key>B4A2CA0E82E9AE44702AB02729DCFB235C2643C9</key>
+		<string>https://github.com/RestKit/RKValueTransformers.git</string>
+		<key>C80A0DCE7BA5516950B5677592E44706A6FDF392</key>
+		<string>https://github.com/NimbusKit/sockit.git</string>
+		<key>D78740BB5B159EA13C82AB5AF1D92A0F3C627237</key>
+		<string>git://github.com/RestKit/RestKit.git</string>
+		<key>DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8</key>
+		<string>https://github.com/AFNetworking/AFNetworking.git</string>
 		<key>E2724C53EE58B2BD6C07FD51E7ED36E5E5E86E5D</key>
 		<string>https://github.com/souvir/projet-mobile.git</string>
 	</dict>
@@ -17,6 +29,18 @@
 	<string>chopacho.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>47A63E07BF2C4AE0426F985EBA351C687092A209</key>
+		<string>../../RestKit/Vendor/TransitionKit/</string>
+		<key>822670D72DA6CB3E094E900F0D31C5A6027736AD</key>
+		<string>../../RestKit/Vendor/ISO8601DateFormatterValueTransformer/</string>
+		<key>B4A2CA0E82E9AE44702AB02729DCFB235C2643C9</key>
+		<string>../../RestKit/Vendor/RKValueTransformers/</string>
+		<key>C80A0DCE7BA5516950B5677592E44706A6FDF392</key>
+		<string>../../RestKit/Vendor/SOCKit/</string>
+		<key>D78740BB5B159EA13C82AB5AF1D92A0F3C627237</key>
+		<string>../../RestKit/</string>
+		<key>DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8</key>
+		<string>../../RestKit/Vendor/AFNetworking/</string>
 		<key>E2724C53EE58B2BD6C07FD51E7ED36E5E5E86E5D</key>
 		<string>../..</string>
 	</dict>
@@ -32,9 +56,57 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AFNetworking</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>822670D72DA6CB3E094E900F0D31C5A6027736AD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ISO8601DateFormatterValueTransformer</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>E2724C53EE58B2BD6C07FD51E7ED36E5E5E86E5D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>projet-mobile</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D78740BB5B159EA13C82AB5AF1D92A0F3C627237</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RestKit</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B4A2CA0E82E9AE44702AB02729DCFB235C2643C9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RKValueTransformers</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C80A0DCE7BA5516950B5677592E44706A6FDF392</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SOCKit</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>47A63E07BF2C4AE0426F985EBA351C687092A209</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TransitionKit</string>
 		</dict>
 	</array>
 </dict>

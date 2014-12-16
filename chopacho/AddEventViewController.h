@@ -13,5 +13,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UISearchBar *inviteSearchBar;
 @property (weak, nonatomic) IBOutlet UIButton *choiceThemeButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *submitEventButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelEventButton;
+@property (strong, nonatomic) NSMutableData *responseData;
 
 @end

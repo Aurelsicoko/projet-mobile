@@ -123,8 +123,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Créer un événement" id="ojt-in-t7P">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Hg3-EE-Goc"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="uJU-Xh-ccf"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Hg3-EE-Goc">
+                                            <connections>
+                                                <action selector="senderCancelEventButton:" destination="qsl-vZ-2Ub" id="iED-3Y-zcp"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="uJU-Xh-ccf">
+                                            <connections>
+                                                <action selector="submitEventButton:" destination="qsl-vZ-2Ub" id="uGE-FZ-xEC"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -162,10 +170,11 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="480"/>
                     <connections>
-                        <outlet property="choiceThemeButton" destination="Fh8-lb-z6Z" id="8vy-Ya-0V7"/>
+                        <outlet property="cancelEventButton" destination="Hg3-EE-Goc" id="5yh-GC-Z8h"/>
                         <outlet property="descriptionTextView" destination="qPx-i6-ZY9" id="LzG-5b-T9b"/>
                         <outlet property="inviteSearchBar" destination="n0b-bt-obo" id="wL6-Ux-ZDw"/>
                         <outlet property="searchDisplayController" destination="Nf0-4Y-Qxk" id="gYK-Xn-5oQ"/>
+                        <outlet property="submitEventButton" destination="uJU-Xh-ccf" id="OIh-x1-sQz"/>
                         <outlet property="titleEventTextField" destination="x9f-pW-5dq" id="2b0-IZ-YpN"/>
                     </connections>
                 </viewController>
