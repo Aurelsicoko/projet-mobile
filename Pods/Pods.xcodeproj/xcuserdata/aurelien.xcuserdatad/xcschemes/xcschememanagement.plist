@@ -4,20 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>chopacho.xcscheme</key>
+		<key>Pods-AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>658572891A3F316C00B3A6B8</key>
+		<key>4F0D992295E906557FD385D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>658572A21A3F316C00B3A6B8</key>
+		<key>52F5162E2D72F2A44C4CD358</key>
 		<dict>
 			<key>primary</key>
 			<true/>
