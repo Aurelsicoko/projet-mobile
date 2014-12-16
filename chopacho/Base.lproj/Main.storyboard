@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -107,10 +107,10 @@
             </objects>
             <point key="canvasLocation" x="445" y="120"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Event View Controller-->
         <scene sceneID="YAf-bP-6v1">
             <objects>
-                <viewController id="qsl-vZ-2Ub" sceneMemberID="viewController">
+                <viewController id="qsl-vZ-2Ub" customClass="AddEventViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xbt-av-joI"/>
                         <viewControllerLayoutGuide type="bottom" id="V8Y-Kl-4HK"/>
@@ -162,7 +162,11 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="480"/>
                     <connections>
+                        <outlet property="choiceThemeButton" destination="Fh8-lb-z6Z" id="8vy-Ya-0V7"/>
+                        <outlet property="descriptionTextView" destination="qPx-i6-ZY9" id="LzG-5b-T9b"/>
+                        <outlet property="inviteSearchBar" destination="n0b-bt-obo" id="wL6-Ux-ZDw"/>
                         <outlet property="searchDisplayController" destination="Nf0-4Y-Qxk" id="gYK-Xn-5oQ"/>
+                        <outlet property="titleEventTextField" destination="x9f-pW-5dq" id="2b0-IZ-YpN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npl-zZ-ijy" userLabel="First Responder" sceneMemberID="firstResponder"/>
