@@ -9,8 +9,8 @@
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                        <viewControllerLayoutGuide type="top" id="AJg-V2-HIE"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Ia-Ug-ZRU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ECc-OR-3nm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -56,15 +56,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="120"/>
+            <point key="canvasLocation" x="-1" y="119.99999999999999"/>
         </scene>
         <!--Homepage-->
         <scene sceneID="Apk-zy-uQo">
             <objects>
                 <viewController id="CEB-eT-R2e" customClass="Homepage" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QrW-vw-bTi"/>
-                        <viewControllerLayoutGuide type="bottom" id="yh7-AS-Ig0"/>
+                        <viewControllerLayoutGuide type="top" id="BFV-5E-kci"/>
+                        <viewControllerLayoutGuide type="bottom" id="fAM-Fw-C46"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Dyx-H9-pHO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -94,6 +94,30 @@
                                     <segue destination="qsl-vZ-2Ub" kind="presentation" id="CHV-Yk-3lf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvr-Bv-I8p">
+                                <rect key="frame" x="16" y="54" width="70" height="30"/>
+                                <state key="normal" title="Invitations">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GRo-vu-c2M">
+                                <rect key="frame" x="219" y="54" width="85" height="30"/>
+                                <state key="normal" title="Evénements">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbW-FW-PBq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Liste des événements" id="T4e-yw-ZMh">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5hU-bi-TV3">
+                                            <connections>
+                                                <segue destination="qsl-vZ-2Ub" kind="presentation" id="UkZ-fZ-3Dn"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -105,15 +129,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qh5-pk-3Ke" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="445" y="120"/>
+            <point key="canvasLocation" x="759" y="120"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YAf-bP-6v1">
             <objects>
                 <viewController id="qsl-vZ-2Ub" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xbt-av-joI"/>
-                        <viewControllerLayoutGuide type="bottom" id="V8Y-Kl-4HK"/>
+                        <viewControllerLayoutGuide type="top" id="3mS-ej-XpY"/>
+                        <viewControllerLayoutGuide type="bottom" id="uzf-Ai-3vc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="t2D-wv-2t8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -184,15 +208,15 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="445" y="788"/>
+            <point key="canvasLocation" x="759.375" y="799.64788732394356"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0vU-hF-ObA">
             <objects>
                 <viewController id="wGC-Xp-8yN" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZYH-OU-nc8"/>
-                        <viewControllerLayoutGuide type="bottom" id="lZE-hT-Qvr"/>
+                        <viewControllerLayoutGuide type="top" id="fwu-Kj-ZX3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rgo-uM-OAs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0sr-Sw-nKC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -227,7 +251,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99b-rN-8FI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="445" y="1398"/>
+            <point key="canvasLocation" x="759.375" y="1437.676056338028"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="UkZ-fZ-3Dn"/>
+    </inferredMetricsTieBreakers>
 </document>
