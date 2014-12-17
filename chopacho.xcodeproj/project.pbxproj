@@ -12,6 +12,7 @@
 		0DA866CD1A41E91900687AF2 /* InviteFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA866CC1A41E91900687AF2 /* InviteFriendsTableViewController.m */; };
 		0DA866D11A42308600687AF2 /* SplashScreen640960.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA866D01A42308600687AF2 /* SplashScreen640960.png */; };
 		0DA866D31A42330C00687AF2 /* splashscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA866D21A42330C00687AF2 /* splashscreen.png */; };
+		0DA866D51A4235EC00687AF2 /* bgNavigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA866D41A4235EC00687AF2 /* bgNavigationBar.png */; };
 		24F311E678E67962ECF667FC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6FBC3082E825F9C7C6E5BEE /* libPods.a */; };
 		653E92D01A402FF100D54665 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653E92CF1A402FF100D54665 /* AddEventViewController.m */; };
 		658572901A3F316C00B3A6B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6585728F1A3F316C00B3A6B8 /* main.m */; };
@@ -42,6 +43,7 @@
 		0DA866CC1A41E91900687AF2 /* InviteFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InviteFriendsTableViewController.m; path = ../InviteFriendsTableViewController.m; sourceTree = "<group>"; };
 		0DA866D01A42308600687AF2 /* SplashScreen640960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen640960.png; sourceTree = "<group>"; };
 		0DA866D21A42330C00687AF2 /* splashscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splashscreen.png; path = chopacho/Images.xcassets/LaunchImage.launchimage/splashscreen.png; sourceTree = "<group>"; };
+		0DA866D41A4235EC00687AF2 /* bgNavigationBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgNavigationBar.png; path = images/bgNavigationBar.png; sourceTree = "<group>"; };
 		653E92CE1A402FF100D54665 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
 		653E92CF1A402FF100D54665 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
 		6585728A1A3F316C00B3A6B8 /* chopacho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chopacho.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 		0DA866CE1A42307500687AF2 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				0DA866D41A4235EC00687AF2 /* bgNavigationBar.png */,
 				0DA866CF1A42307B00687AF2 /* splashscreen */,
 			);
 			name = assets;
@@ -278,6 +281,7 @@
 				0DA866D31A42330C00687AF2 /* splashscreen.png in Resources */,
 				0DA866D11A42308600687AF2 /* SplashScreen640960.png in Resources */,
 				6585729E1A3F316C00B3A6B8 /* LaunchScreen.xib in Resources */,
+				0DA866D51A4235EC00687AF2 /* bgNavigationBar.png in Resources */,
 				6585729B1A3F316C00B3A6B8 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
