@@ -8,6 +8,7 @@
 
 #import "Homepage.h"
 #import "AFNetworking.h"
+#import "ViewController.h"
 
 @interface Homepage ()
 
@@ -19,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+
     
     //GET information in user with facebook id
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -36,6 +38,9 @@
 
     
     
+    NSLog(@":::::::::::");
+    NSLog(@"%@", self.lblFacebookID);
+
 }
 
 - (void)didReceiveMemoryWarning {

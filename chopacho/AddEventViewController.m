@@ -8,7 +8,7 @@
 
 #import "AddEventViewController.h"
 #import "AFNetworking.h"
-#import "ViewController.h"
+#import "Homepage.h"
 
 @interface AddEventViewController ()
 
@@ -20,6 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    Homepage *view;
+    NSString *test = [(NSString *)view.lblEmail lowercaseString];
+    NSLog(@"%@", test);
 
 }
 
@@ -34,6 +38,7 @@
 }
 
 - (IBAction)submitEventButton:(id)sender {
+
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"title": self.titleEventTextField.text, @"author": @"facebook_id", @"content":self.descriptionTextView.text, @"readed": @"[]", @"guest" : @"[]"};
