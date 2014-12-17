@@ -64,18 +64,38 @@
 
     self.lblEmail.text = [user objectForKey:@"id"];
     
+    //GET information in user with facebook id
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *idfacebook = [user objectForKey:@"id"];
+    NSString *username = [user objectForKey:@"username"];
+    self.lblEmail.text = [user objectForKey:@"email"];
+    UIDevice *device = [UIDevice currentDevice];
+    self.deviceID = [[device identifierForVendor]UUIDString];
+    
     [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", idfacebook] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        if ([responseObject count] == 0)
+        {
+            
+            //IF empty POST information about user in user
+            NSLog(@"is empty");
+            
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            NSDictionary *parameters = @{@"facebook_id": idfacebook, @"username": username, @"device":@"device_id"};
+            [manager POST:@"http://chaudpaschaud.herokuapp.com/user" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSLog(@"JSON: %@", responseObject);
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"Error: %@", error);
+            }];
+            
+            
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
 
     
-    self.lblEmail.text = [user objectForKey:@"email"];
-    UIDevice *device = [UIDevice currentDevice];
-    self.deviceID = [[device identifierForVendor]UUIDString];
+    
 
 }
 
