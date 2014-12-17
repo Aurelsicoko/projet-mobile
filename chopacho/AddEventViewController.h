@@ -17,4 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelEventButton;
 @property (strong, nonatomic) NSMutableData *responseData;
 
+@property (weak, nonatomic) IBOutlet NSString *lblFacebookID;
+
 @end

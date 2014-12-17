@@ -17,16 +17,12 @@
 
 @implementation ViewController
 
-- (void)addItemViewController:(Homepage *)controller didFinishEnteringItem:(NSString *)item
-{
-    NSLog(@"This was returned from Homepage %@",item);
-}
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"ShowMainMenu"])
     {
         Homepage *controller = (Homepage *)segue.destinationViewController;
         controller.lblEmail = self.lblEmail.text;
+        controller.lblFacebookID = self.lblFacebookID;
     }
 }
 
@@ -68,23 +64,22 @@
 -(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
     
     self.profilePicture.profileID = user.objectID;
-
+    
     self.lblFacebookID = [user objectForKey:@"id"];
     NSString *facebookID = self.lblFacebookID;
     
+    self.lblUsername.text = @"init";
     self.lblUsername.text = [user objectForKey:@"name"];
-    NSString *userName = self.lblUsername.text;
     
     self.lblEmail.text = @"init";
     self.lblEmail.text = [user objectForKey:@"email"];
     
     Homepage *homepageController = [[Homepage alloc] init];
-    NSLog(@"############");
-    NSLog(@"%@", self.lblFacebookID);
-    homepageController.lblFacebookID = self.lblFacebookID;
-    
+    homepageController.lblEmail = self.lblEmail.text;
+
     [self performSelector:@selector(showMainMenu) withObject:homepageController];
     [self toggleHiddenState:NO];
+    
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", facebookID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -96,7 +91,7 @@
             UIDevice *device = [UIDevice currentDevice];
             self.deviceID = [[device identifierForVendor]UUIDString];
             
-            NSDictionary *parameters = @{@"facebook_id": facebookID, @"username": userName, @"device":self.deviceID};
+            NSDictionary *parameters = @{@"facebook_id": facebookID, @"username": @"Aurélien Georget", @"device":self.deviceID};
             [manager POST:@"http://chaudpaschaud.herokuapp.com/user" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSLog(@"JSON: %@", responseObject);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

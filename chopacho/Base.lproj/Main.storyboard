@@ -91,7 +91,8 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="qsl-vZ-2Ub" kind="presentation" id="CHV-Yk-3lf"/>
+                                    <action selector="addEventView:" destination="CEB-eT-R2e" eventType="touchDown" id="0vE-Jf-WqK"/>
+                                    <segue destination="qsl-vZ-2Ub" kind="show" identifier="addEventButton" id="CHV-Yk-3lf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvr-Bv-I8p">
@@ -113,11 +114,7 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Liste des événements" id="T4e-yw-ZMh">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5hU-bi-TV3">
-                                            <connections>
-                                                <segue destination="qsl-vZ-2Ub" kind="presentation" id="UkZ-fZ-3Dn"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5hU-bi-TV3"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -163,7 +160,7 @@
         <!--Add Event View Controller-->
         <scene sceneID="YAf-bP-6v1">
             <objects>
-                <viewController id="qsl-vZ-2Ub" customClass="AddEventViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createEvent" id="qsl-vZ-2Ub" customClass="AddEventViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3mS-ej-XpY"/>
                         <viewControllerLayoutGuide type="bottom" id="uzf-Ai-3vc"/>
@@ -340,7 +337,4 @@
             <point key="canvasLocation" x="759" y="1437"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="CHV-Yk-3lf"/>
-    </inferredMetricsTieBreakers>
 </document>

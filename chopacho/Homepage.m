@@ -7,7 +7,6 @@
 //
 
 #import "Homepage.h"
-#import "ViewController.h"
 
 @interface Homepage ()
 
@@ -15,18 +14,40 @@
 
 @implementation Homepage
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"addEventButton"])
+    {
+        AddEventViewController *controller = (AddEventViewController *)segue.destinationViewController;
+        controller.lblFacebookID = self.lblFacebookID;
+    }
+}
+- (IBAction)addEventView:(id)sender {
+    
+    AddEventViewController *addEventController = [[AddEventViewController alloc] init];
+    addEventController.lblFacebookID = self.lblFacebookID;
+    
+    //[self pushViewController:addEventController animated:YES];
+    [self performSelector:@selector(addEventButton) withObject:addEventController];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSLog(@":::::::::::");
-    NSLog(@"%@", self.lblFacebookID);
+    if(self){
+        self.lblFacebookID = self.lblFacebookID;
+    }
 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)addEventButton {
+    [self performSegueWithIdentifier:@"addEventButton" sender:self];
 }
 
 /*

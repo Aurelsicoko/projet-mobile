@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddEventViewController.h"
 
 @interface Homepage : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIButton *btnAddEvent;
 
-@property (nonatomic, weak) NSString *lblFacebookID;
+@property (nonatomic) NSString *lblEmail;
 
-@property (nonatomic, weak) NSString *lblEmail;
+@property (nonatomic) NSString *lblFacebookID;
 
 @end

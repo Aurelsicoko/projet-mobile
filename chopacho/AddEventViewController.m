@@ -8,7 +8,6 @@
 
 #import "AddEventViewController.h"
 #import "AFNetworking.h"
-#import "Homepage.h"
 
 @interface AddEventViewController ()
 
@@ -21,9 +20,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    Homepage *view;
-    NSString *test = [(NSString *)view.lblEmail lowercaseString];
-    NSLog(@"%@", test);
+    NSLog(@":::::::::::");
+    NSLog(@"%@", self.lblFacebookID);
+    
 
 }
 
