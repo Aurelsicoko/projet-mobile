@@ -8,6 +8,7 @@
 
 #import "AddEventViewController.h"
 #import "AFNetworking.h"
+#import "ViewController.h"
 
 @interface AddEventViewController ()
 
@@ -19,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,11 +34,11 @@
 }
 
 - (IBAction)submitEventButton:(id)sender {
-  
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"title": self.titleEventTextField.text, @"author": @"facebook_id", @"content":self.descriptionTextView.text, @"readed": @"[]", @"guest" : @"[]"};
     [manager POST:@"http://chaudpaschaud.herokuapp.com/event/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+//        NSLog(@"JSON: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

@@ -61,6 +61,7 @@
     NSLog(@"%@", user);
     self.profilePicture.profileID = user.objectID;
     self.lblUsername.text = user.name;
+
     self.lblEmail.text = [user objectForKey:@"id"];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -70,6 +71,12 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+
+    
+    self.lblEmail.text = [user objectForKey:@"email"];
+    UIDevice *device = [UIDevice currentDevice];
+    self.deviceID = [[device identifierForVendor]UUIDString];
+
 }
 
 
@@ -78,7 +85,6 @@
     
     [self toggleHiddenState:YES];
 }
-
 
 // Handle possible errors that can occur during login
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
