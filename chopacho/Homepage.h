@@ -17,4 +17,6 @@
 
 @property (nonatomic) NSString *lblFacebookID;
 
+@property (weak, nonatomic) IBOutlet UITableView *eventTableView;
+
 @end

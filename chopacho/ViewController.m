@@ -21,7 +21,6 @@
     if([segue.identifier isEqualToString:@"ShowMainMenu"])
     {
         Homepage *controller = (Homepage *)segue.destinationViewController;
-        controller.lblEmail = self.lblEmail.text;
         controller.lblFacebookID = self.lblFacebookID;
     }
 }
@@ -58,11 +57,20 @@
 
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{
     self.lblLoginStatus.text = @"You are logged in.";
+
+    
+    [self performSelector:@selector(showMainMenu) withObject:nil];
+    [self toggleHiddenState:NO];
+
 }
 
 
 -(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
+
+    //////////////////////////////////////////////////////////////NSLog(@"%@", user);
+
     
+
     self.profilePicture.profileID = user.objectID;
     
     self.lblFacebookID = [user objectForKey:@"id"];
@@ -75,15 +83,17 @@
     self.lblEmail.text = [user objectForKey:@"email"];
     
     Homepage *homepageController = [[Homepage alloc] init];
-    homepageController.lblEmail = self.lblEmail.text;
-
+    homepageController.lblFacebookID = self.lblFacebookID;
+    
     [self performSelector:@selector(showMainMenu) withObject:homepageController];
+    //[self showMainMenu];
     [self toggleHiddenState:NO];
     
-    
+
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", facebookID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+        //////////////////////////////////////////////NSLog(@"JSON: %@", responseObject);
+
         if ([responseObject count] == 0)
         {
             
@@ -93,14 +103,14 @@
             
             NSDictionary *parameters = @{@"facebook_id": facebookID, @"username": @"Aurélien Georget", @"device":self.deviceID};
             [manager POST:@"http://chaudpaschaud.herokuapp.com/user" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSLog(@"JSON: %@", responseObject);
+                ////////////////////////////////////////////////NSLog(@"JSON: %@", responseObject);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                NSLog(@"Error: %@", error);
+                ////////////////////////////////////////////////////////NSLog(@"Error: %@", error);
             }];
             
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+        //////////////////////////////////////////////////////////////NSLog(@"Error: %@", error);
     }];
 
 }
@@ -129,13 +139,13 @@
         
         // If the user has cancelled a login, we will do nothing.
     } else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryUserCancelled) {
-        NSLog(@"user cancelled login");
+        //////////////////////////////////////////////////////////////NSLog(@"user cancelled login");
         
         // For simplicity, this sample handles other errors with a generic message
     } else {
         alertTitle  = @"Something went wrong";
         alertMessage = @"Please try again later.";
-        NSLog(@"Unexpected error:%@", error);
+        //////////////////////////////////////////////////////////////NSLog(@"Unexpected error:%@", error);
     }
     
     if (alertMessage) {

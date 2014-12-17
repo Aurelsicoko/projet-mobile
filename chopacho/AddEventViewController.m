@@ -20,7 +20,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSLog(@":::::::::::");
     NSLog(@"%@", self.lblFacebookID);
     
 
@@ -47,32 +46,6 @@
         NSLog(@"Error: %@", error);
     }];
     
-
- 
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://chaudpaschaud.herokuapp.com/event/"]];
-//    
-//    NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
-//                                 self.titleEventTextField.text, @"title",
-//                                 @"facebook_id",  @"author",
-//                                  self.descriptionTextView.text, @"content",
-//                                 @"[]", @"readed",
-//                                 @"[]", @"guest", nil];
-//    
-//    NSError *error;
-//    NSData *postData = [NSJSONSerialization dataWithJSONObject:requestData options:0 error:&error];
-//    
-//    [request setHTTPMethod:@"POST"];
-//    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//    [request setHTTPBody:postData];
-//    
-//    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-//    [connection start];
-//    
-//    if(connection) {
-//        NSLog(@"Connection Successful");
-//    } else {
-//        NSLog(@"Connection could not be made");
-//    }
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
