@@ -29,7 +29,6 @@
     NSLog(@"String received at FirstVC: %@", self.friendsList);
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -47,10 +46,20 @@
 
 - (IBAction)submitEventButton:(id)sender {
     
+    NSString *guests;
+    
+    if([self.friendsList count]){
+        guests = [self.friendsList componentsJoinedByString:@","];
+    } else {
+        guests = @"[]";
+    }
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"title": self.titleEventTextField.text, @"author": self.lblFacebookID, @"content":self.descriptionTextView.text, @"readed": @"[]", @"guest" : @"[]"};
+    NSDictionary *parameters = @{@"title": self.titleEventTextField.text, @"author": self.lblFacebookID, @"content":self.descriptionTextView.text, @"readed": @"[]", @"guests" : guests};
+    NSLog(@"%@", parameters);
     [manager POST:@"http://chaudpaschaud.herokuapp.com/event/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"JSON: %@", responseObject);
+        NSLog(@"JSON: %@", responseObject);
+        [self dismissViewControllerAnimated:YES completion:nil];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

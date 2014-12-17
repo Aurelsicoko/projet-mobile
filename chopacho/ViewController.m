@@ -64,12 +64,40 @@
 
 }
 
-
 -(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
 
-    //////////////////////////////////////////////////////////////NSLog(@"%@", user);
-
+    NSLog(@"%@", user);
     
+    NSMutableArray *appFriendUsers = [[NSMutableArray alloc] init];
+    
+    [[FBRequest requestForGraphPath:@"/me/taggable_friends"]
+     startWithCompletionHandler:
+     ^(FBRequestConnection *connection,
+       NSDictionary *result,
+       NSError *error) {
+         
+         //if result, no errors
+         if (!error && result)
+         {
+             //result dictionary in key "data"
+             NSArray *allFriendsList = [result objectForKey:@"data"];
+             
+             if ([allFriendsList count] > 0)
+             {
+                 // Loop
+                 for (NSDictionary *aFriendData in allFriendsList) {
+                     // Friend installed app?
+                     if ([aFriendData objectForKey:@"installed"]) {
+                         
+                         [appFriendUsers addObject: [aFriendData objectForKey:@"id"]];
+                         break;
+                     }
+                 }
+                 
+                 NSLog(@"%@", appFriendUsers);
+             }
+         }
+     }];
 
     self.profilePicture.profileID = user.objectID;
     

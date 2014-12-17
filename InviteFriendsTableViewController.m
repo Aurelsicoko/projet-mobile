@@ -108,7 +108,7 @@
     if(cell.accessoryType == UITableViewCellAccessoryNone)
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [self.selectedItemsArray insertObject:cell atIndex:indexPath.row];
+        [self.selectedItemsArray insertObject:cell.textLabel.text atIndex:indexPath.row];
     }
     else
     {
