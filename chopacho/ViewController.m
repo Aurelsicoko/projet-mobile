@@ -27,6 +27,7 @@
     {
         Homepage *controller = (Homepage *)segue.destinationViewController;
         controller.lblEmail = self.lblEmail.text;
+        controller.lblFacebookID = self.lblFacebookID;
     }
 }
 
@@ -64,8 +65,6 @@
     self.lblLoginStatus.text = @"You are logged in.";
 
     
-    
-    
     [self performSelector:@selector(showMainMenu) withObject:nil];
     [self toggleHiddenState:NO];
 
@@ -89,12 +88,13 @@
     self.lblEmail.text = @"init";
     self.lblEmail.text = [user objectForKey:@"email"];
     
-    Homepage *homepageController = [[Homepage alloc] init];
+    //Homepage *homepageController = [[Homepage alloc] init];
     NSLog(@"############");
     NSLog(@"%@", self.lblFacebookID);
-    homepageController.lblFacebookID = self.lblFacebookID;
+    //homepageController.lblFacebookID = self.lblFacebookID;
     
-    [self performSelector:@selector(showMainMenu) withObject:homepageController];
+    //[self performSelector:@selector(showMainMenu) withObject:homepageController];
+    [self showMainMenu];
     [self toggleHiddenState:NO];
     
 

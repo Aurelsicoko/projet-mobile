@@ -16,4 +16,6 @@
 
 @property (nonatomic, weak) NSString *lblEmail;
 
+@property (weak, nonatomic) IBOutlet UITableView *eventTableView;
+
 @end

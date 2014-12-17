@@ -136,6 +136,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="CEB-eT-R2e" id="eMd-Xx-9ui"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -154,11 +157,12 @@
                     </view>
                     <connections>
                         <outlet property="btnAddEvent" destination="eMX-w9-sL7" id="SoC-BK-qsp"/>
+                        <outlet property="eventTableView" destination="mLj-7W-Gcc" id="5rR-e1-6gu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qh5-pk-3Ke" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="759" y="120"/>
+            <point key="canvasLocation" x="892" y="120"/>
         </scene>
         <!--Add Event View Controller-->
         <scene sceneID="YAf-bP-6v1">
