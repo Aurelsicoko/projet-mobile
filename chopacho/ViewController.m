@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "AFNetworking.h"
 
 @interface ViewController ()
 
@@ -25,7 +26,7 @@
     self.lblLoginStatus.text = @"";
     
     self.loginButton.delegate = self;
-    self.loginButton.readPermissions = @[@"public_profile", @"email"];
+    self.loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,8 +50,10 @@
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{
     self.lblLoginStatus.text = @"You are logged in.";
     
-    [self performSelector:@selector(showMainMenu) withObject:nil];
-    /*[self toggleHiddenState:NO];*/
+    
+    
+    //[self performSelector:@selector(showMainMenu) withObject:nil];
+    [self toggleHiddenState:NO];
 }
 
 
@@ -58,7 +61,15 @@
     NSLog(@"%@", user);
     self.profilePicture.profileID = user.objectID;
     self.lblUsername.text = user.name;
-    self.lblEmail.text = [user objectForKey:@"email"];
+    self.lblEmail.text = [user objectForKey:@"id"];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *idfacebook = [user objectForKey:@"id"];
+    [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", idfacebook] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 
