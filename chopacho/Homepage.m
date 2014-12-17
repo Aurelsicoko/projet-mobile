@@ -7,6 +7,7 @@
 //
 
 #import "Homepage.h"
+#import "AFNetworking.h"
 
 @interface Homepage ()
 
@@ -17,6 +18,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    //GET information in user with facebook id
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *idfacebook = @"facebook_id2";
+    
+    [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", idfacebook] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        if ([responseObject count] == 0)
+        {
+        NSLog(@"Error: vide");
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
