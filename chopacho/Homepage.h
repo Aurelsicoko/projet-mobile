@@ -12,4 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnAddEvent;
 
+@property (nonatomic, weak) NSString *lblFacebookID;
+
+@property (nonatomic, weak) NSString *lblEmail;
+
 @end

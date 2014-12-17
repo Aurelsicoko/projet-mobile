@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "Homepage.h"
 
 @interface ViewController : UIViewController <FBLoginViewDelegate>
 
@@ -21,7 +22,9 @@
 
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *profilePicture;
 
-@property (weak, nonatomic) IBOutlet NSString *deviceID;
+@property (weak, nonatomic) NSString *deviceID;
+
+@property (weak, nonatomic) NSString *lblFacebookID;
 
 
 @end

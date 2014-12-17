@@ -7,6 +7,7 @@
 //
 
 #import "Homepage.h"
+#import "ViewController.h"
 
 @interface Homepage ()
 
@@ -17,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSLog(@":::::::::::");
+    NSLog(@"%@", self.lblFacebookID);
+
 }
 
 - (void)didReceiveMemoryWarning {

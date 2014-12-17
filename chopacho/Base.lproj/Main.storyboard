@@ -52,7 +52,7 @@
                         <outlet property="lblUsername" destination="hbc-gC-q80" id="Dgr-Hw-t6L"/>
                         <outlet property="loginButton" destination="SUc-bg-Nn1" id="7pv-lU-f7G"/>
                         <outlet property="profilePicture" destination="nMN-sy-m58" id="L3U-qO-1k4"/>
-                        <segue destination="CEB-eT-R2e" kind="presentation" identifier="ShowMainMenu" id="CzH-vO-aMs"/>
+                        <segue destination="CEB-eT-R2e" kind="show" identifier="ShowMainMenu" id="CzH-vO-aMs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

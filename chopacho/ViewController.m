@@ -17,6 +17,19 @@
 
 @implementation ViewController
 
+- (void)addItemViewController:(Homepage *)controller didFinishEnteringItem:(NSString *)item
+{
+    NSLog(@"This was returned from Homepage %@",item);
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"ShowMainMenu"])
+    {
+        Homepage *controller = (Homepage *)segue.destinationViewController;
+        controller.lblEmail = self.lblEmail.text;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -49,29 +62,32 @@
 
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{
     self.lblLoginStatus.text = @"You are logged in.";
-    
-    
-    
-    //[self performSelector:@selector(showMainMenu) withObject:nil];
-    [self toggleHiddenState:NO];
 }
 
 
 -(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
-    NSLog(@"%@", user);
-    self.profilePicture.profileID = user.objectID;
-    self.lblUsername.text = user.name;
-
-    self.lblEmail.text = [user objectForKey:@"id"];
     
-    //GET information in user with facebook id
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSString *idfacebook = [user objectForKey:@"id"];
-    NSString *username = [user objectForKey:@"name"];
+    self.profilePicture.profileID = user.objectID;
+
+    self.lblFacebookID = [user objectForKey:@"id"];
+    NSString *facebookID = self.lblFacebookID;
+    
+    self.lblUsername.text = [user objectForKey:@"name"];
+    NSString *userName = self.lblUsername.text;
+    
+    self.lblEmail.text = @"init";
     self.lblEmail.text = [user objectForKey:@"email"];
     
+    Homepage *homepageController = [[Homepage alloc] init];
+    NSLog(@"############");
+    NSLog(@"%@", self.lblFacebookID);
+    homepageController.lblFacebookID = self.lblFacebookID;
     
-    [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", idfacebook] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self performSelector:@selector(showMainMenu) withObject:homepageController];
+    [self toggleHiddenState:NO];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", facebookID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         if ([responseObject count] == 0)
         {
@@ -80,21 +96,17 @@
             UIDevice *device = [UIDevice currentDevice];
             self.deviceID = [[device identifierForVendor]UUIDString];
             
-            NSDictionary *parameters = @{@"facebook_id": idfacebook, @"username": username, @"device":self.deviceID};
+            NSDictionary *parameters = @{@"facebook_id": facebookID, @"username": userName, @"device":self.deviceID};
             [manager POST:@"http://chaudpaschaud.herokuapp.com/user" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSLog(@"JSON: %@", responseObject);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"Error: %@", error);
             }];
             
-            
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
-
-    
-    
 
 }
 
