@@ -7,16 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "InviteFriendsTableViewController.h"
 
-@interface AddEventViewController : UIViewController
+@interface AddEventViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SecondDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleEventTextField;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
-@property (weak, nonatomic) IBOutlet UISearchBar *inviteSearchBar;
-@property (weak, nonatomic) IBOutlet UIButton *choiceThemeButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *submitEventButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelEventButton;
+
 @property (strong, nonatomic) NSMutableData *responseData;
 
 @property (weak, nonatomic) IBOutlet NSString *lblFacebookID;
+@property (weak, nonatomic) IBOutlet UIButton *inviteFriendsButton;
+
+@property (weak, nonatomic) IBOutlet NSMutableArray *friendsList;
 
 @end

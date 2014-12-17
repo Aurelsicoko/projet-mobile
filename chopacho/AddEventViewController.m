@@ -15,14 +15,24 @@
 
 @implementation AddEventViewController
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"chooseFriends"]) {
+        InviteFriendsTableViewController *controller = (InviteFriendsTableViewController *)segue.destinationViewController;
+        controller.myDelegate = self;
+    }
+}
+
+- (void)secondViewControllerDismissed:(NSMutableArray *)friendsList
+{
+    self.friendsList = friendsList;
+    NSLog(@"String received at FirstVC: %@", self.friendsList);
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    NSLog(@"%@", self.lblFacebookID);
-    
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,10 +46,9 @@
 }
 
 - (IBAction)submitEventButton:(id)sender {
-
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"title": self.titleEventTextField.text, @"author": @"facebook_id", @"content":self.descriptionTextView.text, @"readed": @"[]", @"guest" : @"[]"};
+    NSDictionary *parameters = @{@"title": self.titleEventTextField.text, @"author": self.lblFacebookID, @"content":self.descriptionTextView.text, @"readed": @"[]", @"guest" : @"[]"};
     [manager POST:@"http://chaudpaschaud.herokuapp.com/event/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"JSON: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -47,50 +56,4 @@
     }];
     
 }
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    self.responseData = [NSMutableData data];
-    NSLog(@"%@", self.responseData);
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    [self.responseData appendData:data];
-    NSLog(@"%@", self.responseData);
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    NSLog(@"response data - %@", [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding]);
-}
-
-- (void)connection:(NSURLConnection *)connection
-  didFailWithError:(NSError *)error
-{
-    // Release the connection and the data object
-    // by setting the properties (declared elsewhere)
-    // to nil.  Note that a real-world app usually
-    // requires the delegate to manage more than one
-    // connection at a time, so these lines would
-    // typically be replaced by code to iterate through
-    // whatever data structures you are using.
-    self.responseData = nil;
-    
-    // inform the user
-    NSLog(@"Connection failed! Error - %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

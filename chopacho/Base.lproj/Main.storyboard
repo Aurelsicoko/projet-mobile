@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -71,30 +71,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.49999999999999961" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMX-w9-sL7">
-                                <rect key="frame" x="291" y="558" width="22" height="22"/>
-                                <rect key="contentStretch" x="0.15000000000000002" y="0.0" width="1" height="1"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="eMX-w9-sL7" secondAttribute="height" multiplier="1:1" id="8ba-J7-eNA"/>
-                                    <constraint firstAttribute="width" secondItem="eMX-w9-sL7" secondAttribute="height" multiplier="1:1" id="d6g-Yr-EIN"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="iaz-5b-i2v"/>
-                                    <constraint firstAttribute="height" constant="40" id="lWb-hx-tr8"/>
-                                    <constraint firstAttribute="width" constant="40" id="z3E-ck-qxx"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="8ba-J7-eNA"/>
-                                        <exclude reference="iaz-5b-i2v"/>
-                                        <exclude reference="lWb-hx-tr8"/>
-                                        <exclude reference="z3E-ck-qxx"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="addEventView:" destination="CEB-eT-R2e" eventType="touchDown" id="0vE-Jf-WqK"/>
-                                    <segue destination="qsl-vZ-2Ub" kind="show" identifier="addEventButton" id="CHV-Yk-3lf"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvr-Bv-I8p">
                                 <rect key="frame" x="213" y="54" width="33" height="30"/>
                                 <state key="normal" title="Host">
@@ -137,6 +113,30 @@
                                     <outlet property="dataSource" destination="CEB-eT-R2e" id="eMd-Xx-9ui"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" alpha="0.49999999999999961" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMX-w9-sL7">
+                                <rect key="frame" x="291" y="558" width="22" height="22"/>
+                                <rect key="contentStretch" x="0.15000000000000002" y="0.0" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eMX-w9-sL7" secondAttribute="height" multiplier="1:1" id="8ba-J7-eNA"/>
+                                    <constraint firstAttribute="width" secondItem="eMX-w9-sL7" secondAttribute="height" multiplier="1:1" id="d6g-Yr-EIN"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="iaz-5b-i2v"/>
+                                    <constraint firstAttribute="height" constant="40" id="lWb-hx-tr8"/>
+                                    <constraint firstAttribute="width" constant="40" id="z3E-ck-qxx"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8ba-J7-eNA"/>
+                                        <exclude reference="iaz-5b-i2v"/>
+                                        <exclude reference="lWb-hx-tr8"/>
+                                        <exclude reference="z3E-ck-qxx"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="addEventView:" destination="CEB-eT-R2e" eventType="touchDown" id="0vE-Jf-WqK"/>
+                                    <segue destination="qsl-vZ-2Ub" kind="show" identifier="addEventButton" id="CHV-Yk-3lf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -173,6 +173,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x9f-pW-5dq">
+                                <rect key="frame" x="16" y="98" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="x9f-pW-5dq" secondAttribute="height" multiplier="284:15" id="DiN-Jq-8em"/>
+                                    <constraint firstAttribute="width" secondItem="x9f-pW-5dq" secondAttribute="height" multiplier="284:15" id="GfC-mh-Fhi"/>
+                                    <constraint firstAttribute="height" constant="30" id="IMf-ev-ZBO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="Invite your friends" translatesAutoresizingMaskIntoConstraints="NO" id="n0b-bt-obo">
+                                <rect key="frame" x="16" y="296" width="568" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="n0b-bt-obo" secondAttribute="height" multiplier="142:11" id="28R-4d-ezo"/>
+                                    <constraint firstAttribute="height" constant="44" id="Bqs-Di-SAD"/>
+                                    <constraint firstAttribute="width" secondItem="n0b-bt-obo" secondAttribute="height" multiplier="142:11" id="mig-o5-wRW"/>
+                                    <constraint firstAttribute="width" secondItem="n0b-bt-obo" secondAttribute="height" multiplier="142:11" id="y58-j2-27D"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" text="Short description (place, hour, ...)" translatesAutoresizingMaskIntoConstraints="NO" id="qPx-i6-ZY9">
+                                <rect key="frame" x="16" y="150" width="568" height="94"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qPx-i6-ZY9" secondAttribute="height" multiplier="284:47" id="AEt-JP-YHg"/>
+                                    <constraint firstAttribute="width" secondItem="qPx-i6-ZY9" secondAttribute="height" multiplier="284:47" id="R5p-Go-sGV"/>
+                                    <constraint firstAttribute="height" constant="90" id="rc7-OO-lJ9"/>
+                                    <constraint firstAttribute="width" secondItem="qPx-i6-ZY9" secondAttribute="height" multiplier="284:47" id="x04-Uo-yZN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFO-q5-pje">
+                                <rect key="frame" x="16" y="346" width="568" height="30"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AFO-q5-pje" secondAttribute="height" multiplier="284:15" id="mgK-YO-r3G"/>
+                                </constraints>
+                                <state key="normal" title="Invite your friends"/>
+                                <connections>
+                                    <segue destination="jsf-Lx-7Y7" kind="presentation" identifier="chooseFriends" id="HdV-A9-NxZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fh8-lb-z6Z">
+                                <rect key="frame" x="16" y="285" width="568" height="30"/>
+                                <state key="normal" title="Choose a theme">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F2w-Ml-SFT">
                                 <rect key="frame" x="0.0" y="20" width="600" height="60"/>
                                 <constraints>
@@ -194,54 +247,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x9f-pW-5dq">
-                                <rect key="frame" x="16" y="98" width="568" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="x9f-pW-5dq" secondAttribute="height" multiplier="284:15" id="DiN-Jq-8em"/>
-                                    <constraint firstAttribute="width" secondItem="x9f-pW-5dq" secondAttribute="height" multiplier="284:15" id="GfC-mh-Fhi"/>
-                                    <constraint firstAttribute="height" constant="30" id="IMf-ev-ZBO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" text="Invite your friends" translatesAutoresizingMaskIntoConstraints="NO" id="n0b-bt-obo">
-                                <rect key="frame" x="16" y="296" width="568" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="n0b-bt-obo" secondAttribute="height" multiplier="142:11" id="28R-4d-ezo"/>
-                                    <constraint firstAttribute="height" constant="44" id="Bqs-Di-SAD"/>
-                                    <constraint firstAttribute="width" secondItem="n0b-bt-obo" secondAttribute="height" multiplier="142:11" id="mig-o5-wRW"/>
-                                    <constraint firstAttribute="width" secondItem="n0b-bt-obo" secondAttribute="height" multiplier="142:11" id="y58-j2-27D"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                                <connections>
-                                    <outlet property="delegate" destination="qsl-vZ-2Ub" id="1ru-RO-tEJ"/>
-                                </connections>
-                            </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fh8-lb-z6Z">
-                                <rect key="frame" x="16" y="238" width="568" height="30"/>
-                                <state key="normal" title="Choose a theme">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="wGC-Xp-8yN" kind="show" id="SRe-KT-Jex"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" text="Short description (place, hour, ...)" translatesAutoresizingMaskIntoConstraints="NO" id="qPx-i6-ZY9">
-                                <rect key="frame" x="16" y="150" width="568" height="94"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="qPx-i6-ZY9" secondAttribute="height" multiplier="284:47" id="AEt-JP-YHg"/>
-                                    <constraint firstAttribute="width" secondItem="qPx-i6-ZY9" secondAttribute="height" multiplier="284:47" id="R5p-Go-sGV"/>
-                                    <constraint firstAttribute="height" constant="90" id="rc7-OO-lJ9"/>
-                                    <constraint firstAttribute="width" secondItem="qPx-i6-ZY9" secondAttribute="height" multiplier="284:47" id="x04-Uo-yZN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -261,84 +266,86 @@
                             <constraint firstItem="x9f-pW-5dq" firstAttribute="leading" secondItem="t2D-wv-2t8" secondAttribute="leadingMargin" id="SrN-hV-z5B"/>
                             <constraint firstItem="x9f-pW-5dq" firstAttribute="trailing" secondItem="t2D-wv-2t8" secondAttribute="trailingMargin" id="UX3-8y-Qz9"/>
                             <constraint firstAttribute="centerX" secondItem="qPx-i6-ZY9" secondAttribute="centerX" id="Ypk-11-qS0"/>
+                            <constraint firstItem="qPx-i6-ZY9" firstAttribute="top" secondItem="x9f-pW-5dq" secondAttribute="bottom" constant="20" id="ZpT-Af-Ol0"/>
                             <constraint firstAttribute="centerX" secondItem="n0b-bt-obo" secondAttribute="centerX" id="bVh-wx-58B"/>
                             <constraint firstAttribute="centerX" secondItem="n0b-bt-obo" secondAttribute="centerX" id="cPM-99-SsO"/>
                             <constraint firstItem="n0b-bt-obo" firstAttribute="leading" secondItem="t2D-wv-2t8" secondAttribute="leadingMargin" id="kSo-5H-APJ"/>
                             <constraint firstAttribute="centerX" secondItem="F2w-Ml-SFT" secondAttribute="centerX" id="pHg-ez-nrA"/>
                             <constraint firstAttribute="centerX" secondItem="n0b-bt-obo" secondAttribute="centerX" id="qOL-h8-FKs"/>
+                            <constraint firstItem="uzf-Ai-3vc" firstAttribute="top" secondItem="AFO-q5-pje" secondAttribute="bottom" constant="224" id="sxe-wn-3fs"/>
+                            <constraint firstItem="x9f-pW-5dq" firstAttribute="top" secondItem="F2w-Ml-SFT" secondAttribute="bottom" constant="20" id="tcL-CZ-HMg"/>
                             <constraint firstItem="qPx-i6-ZY9" firstAttribute="leading" secondItem="t2D-wv-2t8" secondAttribute="leadingMargin" id="yY1-ex-Fd2"/>
+                            <constraint firstAttribute="centerX" secondItem="AFO-q5-pje" secondAttribute="centerX" id="yhL-sS-9BH"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="n0b-bt-obo"/>
+                                <exclude reference="Fh8-lb-z6Z"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="cancelEventButton" destination="Hg3-EE-Goc" id="5yh-GC-Z8h"/>
+                        <outlet property="cancelButton" destination="Hg3-EE-Goc" id="4LY-Eg-tG2"/>
                         <outlet property="descriptionTextView" destination="qPx-i6-ZY9" id="LzG-5b-T9b"/>
-                        <outlet property="inviteSearchBar" destination="n0b-bt-obo" id="wL6-Ux-ZDw"/>
-                        <outlet property="searchDisplayController" destination="Nf0-4Y-Qxk" id="gYK-Xn-5oQ"/>
+                        <outlet property="inviteFriendsButton" destination="AFO-q5-pje" id="hUM-wl-2kz"/>
                         <outlet property="submitEventButton" destination="uJU-Xh-ccf" id="OIh-x1-sQz"/>
                         <outlet property="titleEventTextField" destination="x9f-pW-5dq" id="2b0-IZ-YpN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npl-zZ-ijy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="h1o-mf-qbX">
-                    <connections>
-                        <outlet property="delegate" destination="qsl-vZ-2Ub" id="WcM-ir-wmH"/>
-                        <outlet property="searchContentsController" destination="qsl-vZ-2Ub" id="Hpb-LK-mqE"/>
-                        <outlet property="searchResultsDataSource" destination="qsl-vZ-2Ub" id="yfK-y2-1zo"/>
-                        <outlet property="searchResultsDelegate" destination="qsl-vZ-2Ub" id="RY5-Hj-HFc"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="Nf0-4Y-Qxk">
-                    <connections>
-                        <outlet property="delegate" destination="qsl-vZ-2Ub" id="i1h-6c-vJC"/>
-                        <outlet property="searchBar" destination="n0b-bt-obo" id="NB6-ft-UJG"/>
-                        <outlet property="searchContentsController" destination="qsl-vZ-2Ub" id="Mab-MY-NkG"/>
-                        <outlet property="searchResultsDataSource" destination="qsl-vZ-2Ub" id="FsR-7p-alD"/>
-                        <outlet property="searchResultsDelegate" destination="qsl-vZ-2Ub" id="cim-KL-hZL"/>
-                    </connections>
-                </searchDisplayController>
+                <searchDisplayController id="h1o-mf-qbX"/>
+                <searchDisplayController id="Nf0-4Y-Qxk"/>
             </objects>
-            <point key="canvasLocation" x="759" y="830"/>
+            <point key="canvasLocation" x="892" y="861"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="0vU-hF-ObA">
+        <!--Invite Friends Table View Controller-->
+        <scene sceneID="Wdd-7J-aNF">
             <objects>
-                <viewController id="wGC-Xp-8yN" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fwu-Kj-ZX3"/>
-                        <viewControllerLayoutGuide type="bottom" id="Rgo-uM-OAs"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0sr-Sw-nKC">
+                <tableViewController id="jsf-Lx-7Y7" customClass="InviteFriendsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0gB-vW-U9r">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jII-Fc-iJn">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Choix du thème" id="n57-b5-gcZ">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="XH7-cp-8x3"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RaJ-Tx-M1e">
-                                <rect key="frame" x="0.0" y="44" width="600" height="480"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="ThemeTableViewCell" selectionStyle="default" indentationWidth="10" id="xDG-zu-qR3">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xDG-zu-qR3" id="mqL-VD-zSY">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="99b-rN-8FI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="aen-2Z-YY0">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Select your friends" id="FOM-rX-6lE">
+                                    <barButtonItem key="leftBarButtonItem" title="Cancel" id="fFf-LP-Aws">
+                                        <connections>
+                                            <action selector="cancelFriendsList:" destination="jsf-Lx-7Y7" id="mJh-TX-nkW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" title="Invite" id="ha3-Om-vby">
+                                        <connections>
+                                            <action selector="submitFriendsList:" destination="jsf-Lx-7Y7" id="9rp-4Z-vge"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" id="KJN-Cd-ACP">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KJN-Cd-ACP" id="OfT-nQ-z3Z">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jsf-Lx-7Y7" id="0zB-G6-CCn"/>
+                            <outlet property="delegate" destination="jsf-Lx-7Y7" id="0ec-Yq-pbD"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="cancelFriendsList" destination="fFf-LP-Aws" id="Z2S-R3-qDv"/>
+                        <outlet property="friendsList" destination="0gB-vW-U9r" id="Rlv-0Y-Reu"/>
+                        <outlet property="submitFriendsList" destination="ha3-Om-vby" id="4tZ-Sd-2WI"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qq9-zG-uLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="759" y="1717"/>
+            <point key="canvasLocation" x="892" y="1611"/>
         </scene>
     </scenes>
 </document>
