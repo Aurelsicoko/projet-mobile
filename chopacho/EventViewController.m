@@ -29,6 +29,7 @@
     self.titleLabel.text = (NSString *)[event valueForKey:@"title"];
     self.descriptionTextView.text = (NSString *)[event valueForKey:@"content"];
     [self.descriptionTextView setTextColor:[UIColor whiteColor]];
+    self.idEvent = (NSString *)[event valueForKey:@"id"];
     
     // Rounded Rect for profile picture image
     CALayer *cellImageLayer = self.profilePicture.layer;
@@ -56,8 +57,35 @@
     }];
 
 }
+
 - (IBAction)backEvent:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)acceptEvent:(id)sender {
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"id": self.idEvent, @"user": self.lblFacebookID, @"answer":@"true"};
+    NSString *url = [NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/event/%@", self.idEvent];
+    [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+- (IBAction)refuseEvent:(id)sender {
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"id": self.idEvent, @"user": self.lblFacebookID, @"answer":@"false"};
+    NSString *url = [NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/event/%@", self.idEvent];
+    [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

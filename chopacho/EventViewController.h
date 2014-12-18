@@ -12,6 +12,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (nonatomic) NSString *idEvent;
+@property (nonatomic) NSString *lblFacebookID;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backEventBar;
 @property (weak, nonatomic) IBOutlet UITableView *participatedUsersTableView;
@@ -19,5 +21,7 @@
 
 @property (nonatomic) NSMutableArray *cellSegue;
 
+@property (weak, nonatomic) IBOutlet UIButton *refuseButton;
+@property (weak, nonatomic) IBOutlet UIButton *acceptButton;
 @property (nonatomic) NSMutableArray *invitedUser;
 @end

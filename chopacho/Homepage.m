@@ -34,6 +34,7 @@
     
     if([segue.identifier isEqualToString:@"singleEventIdentifier"]){
         EventViewController *controller = (EventViewController *)segue.destinationViewController;
+        controller.lblFacebookID = self.lblFacebookID;
         
         if (self.owner.count == 0) {
             controller.cellSegue = [self.participated objectAtIndex:selectedIndex];
@@ -77,35 +78,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //GET information in user with facebook id
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSString *idfacebook = self.lblFacebookID;
-    
-    [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", idfacebook] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-
-        
-//         NSMutableDictionary *jsonowner = (NSMutableDictionary*)[responseObject valueForKeyPath:@"owner"];
-//         NSArray *owner = [jsonowner valueForKey:@"title"];
-//        
-//         NSMutableDictionary *jsonoparticipated = (NSMutableDictionary*)[responseObject valueForKeyPath:@"participated"];
-//         NSArray *participated = [jsonoparticipated valueForKey:@"title"];
-//
-        self.user = (NSMutableDictionary*)responseObject;
-        self.owner = [self.user valueForKey:@"owner"];
-        self.participated = [self.user valueForKey:@"participated"];
-        
-        NSLog(@"%@", self.user);
-        
-        [self.eventTableView reloadData];
-        
-        if ([responseObject count] == 0)
-        {
-        NSLog(@"Error: vide");
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-    
     // Style
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bgNavigationBar.png"] forBarMetrics:UIBarMetricsDefault];
     
@@ -121,6 +93,26 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //GET information in user with facebook id
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *idfacebook = self.lblFacebookID;
+    
+    [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", idfacebook] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        self.user = (NSMutableDictionary*)responseObject;
+        self.owner = [self.user valueForKey:@"owner"];
+        self.participated = [self.user valueForKey:@"participated"];
+        
+        [self.eventTableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 
 - (void)addEventButton {
     [self performSegueWithIdentifier:@"addEventButton" sender:self];
@@ -147,15 +139,37 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
+    NSMutableArray *event;
+    
     if (self.owner.count == 0) {
-        NSMutableArray *event = [self.participated objectAtIndex:indexPath.row];
-        cell.textLabel.text = (NSString *)[event valueForKey:@"title"];
+        event = [self.participated objectAtIndex:indexPath.row];
     }else{
-        NSMutableArray *event = [self.owner objectAtIndex:indexPath.row];
-        cell.textLabel.text = (NSString *)[event valueForKey:@"title"];
+        event = [self.owner objectAtIndex:indexPath.row];
     }
-   
-    cell.contentView.backgroundColor = [UIColor colorWithRed:0.753 green:0.729 blue:0.675 alpha:1];
+    
+    cell.textLabel.text = (NSString *)[event valueForKey:@"title"];
+    
+    NSMutableArray *readed = [event valueForKey:@"readed"];
+    NSMutableArray *accept = [[NSMutableArray alloc] init];
+    for (int i = 0; i < readed.count; i++)
+    {
+        NSMutableArray *read = [readed[i] valueForKey:self.lblFacebookID];
+        if(read){
+            NSString *value = (NSString *)[read valueForKey:@"readed"];
+            if([value isEqualToString:@"true"] || [value isEqualToString:@"1"]){
+                [accept addObject:read];
+            }
+        }
+    }
+    
+    if(accept.count == 0){
+        // The user hasn't answered
+        cell.contentView.backgroundColor = [UIColor colorWithRed:0.753 green:0.729 blue:0.675 alpha:1];
+    }else {
+        // The user has accepted
+        cell.contentView.backgroundColor = [UIColor colorWithRed:0.31 green:0.651 blue:0.878 alpha:1];
+    }
+    
 
     return cell;
 }

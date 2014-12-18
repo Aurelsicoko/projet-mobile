@@ -73,7 +73,7 @@
                   symbolName = "-[Homepage lblFacebookID]"
                   moduleName = "chopacho"
                   urlString = "file:///Users/aurelien/Documents/YoEvent/projet-mobile/chopacho/Homepage.h"
-                  timestampString = "440608650.76836"
+                  timestampString = "440615766.321842"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "19"
@@ -87,7 +87,7 @@
                   symbolName = "-[Homepage setLblFacebookID:]"
                   moduleName = "chopacho"
                   urlString = "file:///Users/aurelien/Documents/YoEvent/projet-mobile/chopacho/Homepage.h"
-                  timestampString = "440608650.768737"
+                  timestampString = "440615766.32214"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "19"
@@ -104,12 +104,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "chopacho/EventViewController.m"
-            timestampString = "440612287.838127"
+            timestampString = "440615765.808785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "chopacho/EventViewController.m"
+            timestampString = "440615765.808785"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "-acceptEvent:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

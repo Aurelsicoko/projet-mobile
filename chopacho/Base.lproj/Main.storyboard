@@ -303,6 +303,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="refuseEvent:" destination="wdA-cf-WNh" eventType="touchUpInside" id="1C6-fc-CFg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frR-F6-YB8">
                                 <rect key="frame" x="374" y="540" width="175" height="60"/>
@@ -316,6 +319,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="acceptEvent:" destination="wdA-cf-WNh" eventType="touchUpInside" id="RBK-zJ-ob7"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xQ-Tj-n3P">
                                 <rect key="frame" x="45" y="225" width="510" height="56"/>
@@ -357,10 +363,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Tdq-v1-onx"/>
                     <connections>
+                        <outlet property="acceptButton" destination="frR-F6-YB8" id="gjO-um-F15"/>
                         <outlet property="backEventBar" destination="cAr-AJ-AfK" id="oI8-Y1-MpQ"/>
                         <outlet property="descriptionTextView" destination="8xQ-Tj-n3P" id="jac-Nr-HId"/>
                         <outlet property="participatedUsersTableView" destination="g5N-lf-GRD" id="sgW-Ue-xpO"/>
                         <outlet property="profilePicture" destination="3ii-yC-lRt" id="Fyq-eB-0XH"/>
+                        <outlet property="refuseButton" destination="GKJ-qn-6RL" id="KLg-pV-DG9"/>
                         <outlet property="titleLabel" destination="Tpu-Dr-aj3" id="2IH-A0-Nlw"/>
                         <outlet property="usernameLabel" destination="3lh-EG-3VF" id="AkA-Oh-jIi"/>
                     </connections>
