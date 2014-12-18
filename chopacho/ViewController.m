@@ -60,10 +60,8 @@
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{
     self.lblLoginStatus.text = @"You are logged in.";
 
-    
     //[self performSelector:@selector(showMainMenu) withObject:nil];
     [self toggleHiddenState:NO];
-
 }
 
 -(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{

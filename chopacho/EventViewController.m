@@ -20,8 +20,11 @@
     // Do any additional setup after loading the view.
     
     self.participatedUsersTableView.dataSource = self;
-
     
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
+    CALayer *labelTimer = self.timerLabel.layer;
+    [labelTimer setCornerRadius:35];
+    [labelTimer setMasksToBounds:YES];
     
     NSMutableArray *event = self.cellSegue;
     NSMutableArray *owner = [event valueForKey:@"createdBy"];
@@ -66,11 +69,26 @@
 
 }
 
+- (void)timerTick:(NSTimer *)timer {
+    
+    int tmp = [self.timerLabel.text intValue];
+    int value = tmp-1;
+    
+    if(tmp == 1) {
+        [self refuseEvent:self];
+    }
+    
+    self.timerLabel.text = [NSString stringWithFormat:@"%d", value];
+}
+
 - (IBAction)backEvent:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)acceptEvent:(id)sender {
+    
+    [self.timer invalidate];
+    self.timer = nil;
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"id": self.idEvent, @"user": self.lblFacebookID, @"answer":@"true"};
@@ -84,6 +102,9 @@
 }
 
 - (IBAction)refuseEvent:(id)sender {
+    
+    [self.timer invalidate];
+    self.timer = nil;
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"id": self.idEvent, @"user": self.lblFacebookID, @"answer":@"false"};
@@ -122,13 +143,40 @@
     if(cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+
     
     NSMutableArray *event = [self.invitedUser objectAtIndex:indexPath.row];
     cell.textLabel.text = (NSString *)[event valueForKey:@"username"];
     cell.accessoryType = UITableViewCellAccessoryNone;
-    cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmark.png"]];
     
-    NSLog(@"%@", cell.accessoryView);
+    
+    NSString *facebookUserID = (NSString *)[event valueForKey:@"facebook_id"];
+    NSLog(@"FACEBOOK %@", facebookUserID);
+    
+    NSMutableArray *theEvent = self.cellSegue;
+    NSMutableArray *readed = [theEvent valueForKey:@"readed"];
+    if(readed.count > 0) {
+        BOOL _boolean = NO;
+        for (int o = 0; o < readed.count; o++)
+        {
+            NSMutableArray *read = [readed[o] valueForKey:facebookUserID];
+            if(read){
+                if(_boolean == NO){
+                    _boolean = YES;
+                    NSString *value = (NSString *)[read valueForKey:@"readed"];
+                    
+                    if([value isEqualToString:@"true"] || [value isEqualToString:@"1"]) {
+                        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmark.png"]];
+                    }
+                    else if([value isEqualToString:@"null"]) {
+                        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmarkNone.png"]];
+                    }else {
+                        
+                    }
+                }
+            }
+        }
+    }
     
     return cell;
 }

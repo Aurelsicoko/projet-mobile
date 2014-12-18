@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -11,6 +11,7 @@
             <string>SourceSansPro-Light</string>
         </mutableArray>
         <mutableArray key="SourceSansPro-Regular.otf">
+            <string>SourceSansPro-Regular</string>
             <string>SourceSansPro-Regular</string>
             <string>SourceSansPro-Regular</string>
             <string>SourceSansPro-Regular</string>
@@ -155,7 +156,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Xk-sJ-l0k" id="PUk-vV-Xyt">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=">" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlF-kb-tzS">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlF-kb-tzS">
                                                     <rect key="frame" x="570" y="14" width="22" height="42"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="35"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -342,6 +343,17 @@
                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999987" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrv-a0-HY8">
+                                <rect key="frame" x="292" y="505" width="70" height="70"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="4dA-oN-R4c"/>
+                                    <constraint firstAttribute="height" constant="70" id="osQ-8s-0nn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="30"/>
+                                <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -359,8 +371,10 @@
                             <constraint firstItem="g5N-lf-GRD" firstAttribute="leading" secondItem="sP4-XB-Tyl" secondAttribute="leadingMargin" constant="-16" id="VgL-MB-2l9"/>
                             <constraint firstItem="s7G-2y-UCr" firstAttribute="top" secondItem="GKJ-qn-6RL" secondAttribute="bottom" constant="17" id="WXp-YO-pPi"/>
                             <constraint firstAttribute="centerX" secondItem="3ii-yC-lRt" secondAttribute="centerX" id="ZcA-XR-Sa4"/>
+                            <constraint firstItem="s7G-2y-UCr" firstAttribute="top" secondItem="mrv-a0-HY8" secondAttribute="bottom" constant="47" id="aY6-cS-hbA"/>
                             <constraint firstAttribute="centerX" secondItem="Ra1-20-Cgl" secondAttribute="centerX" id="bpv-kG-EOk"/>
                             <constraint firstItem="g5N-lf-GRD" firstAttribute="leading" secondItem="2ZK-mh-lyB" secondAttribute="leading" id="cH9-Hd-Tya"/>
+                            <constraint firstAttribute="centerX" secondItem="mrv-a0-HY8" secondAttribute="centerX" id="gWs-24-qLd"/>
                             <constraint firstItem="frR-F6-YB8" firstAttribute="width" secondItem="GKJ-qn-6RL" secondAttribute="width" id="jVE-83-1zQ"/>
                             <constraint firstItem="Tpu-Dr-aj3" firstAttribute="top" secondItem="3lh-EG-3VF" secondAttribute="bottom" constant="4" id="kyc-iY-Y5e"/>
                             <constraint firstItem="8xQ-Tj-n3P" firstAttribute="leading" secondItem="sP4-XB-Tyl" secondAttribute="leadingMargin" constant="50" id="lkb-eP-Bjq"/>
@@ -380,6 +394,7 @@
                         <outlet property="participatedUsersTableView" destination="g5N-lf-GRD" id="sgW-Ue-xpO"/>
                         <outlet property="profilePicture" destination="3ii-yC-lRt" id="Fyq-eB-0XH"/>
                         <outlet property="refuseButton" destination="GKJ-qn-6RL" id="KLg-pV-DG9"/>
+                        <outlet property="timerLabel" destination="mrv-a0-HY8" id="tks-7x-Lb3"/>
                         <outlet property="titleLabel" destination="Tpu-Dr-aj3" id="2IH-A0-Nlw"/>
                         <outlet property="usernameLabel" destination="3lh-EG-3VF" id="AkA-Oh-jIi"/>
                     </connections>

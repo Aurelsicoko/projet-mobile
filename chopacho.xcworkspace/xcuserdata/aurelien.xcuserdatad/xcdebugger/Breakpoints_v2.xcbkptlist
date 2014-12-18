@@ -73,7 +73,7 @@
                   symbolName = "-[Homepage lblFacebookID]"
                   moduleName = "chopacho"
                   urlString = "file:///Users/aurelien/Documents/YoEvent/projet-mobile/chopacho/Homepage.h"
-                  timestampString = "440615766.321842"
+                  timestampString = "440625269.442913"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "19"
@@ -87,7 +87,7 @@
                   symbolName = "-[Homepage setLblFacebookID:]"
                   moduleName = "chopacho"
                   urlString = "file:///Users/aurelien/Documents/YoEvent/projet-mobile/chopacho/Homepage.h"
-                  timestampString = "440615766.32214"
+                  timestampString = "440625269.443123"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "19"
@@ -104,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "chopacho/EventViewController.m"
-            timestampString = "440620761.938317"
+            timestampString = "440625913.219438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -120,12 +120,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "chopacho/EventViewController.m"
-            timestampString = "440620761.938317"
+            timestampString = "440625913.219438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "-acceptEvent:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "chopacho/EventViewController.m"
+            timestampString = "440625529.715215"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "-timerTick:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
