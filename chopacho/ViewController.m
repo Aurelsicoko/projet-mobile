@@ -11,8 +11,6 @@
 
 @interface ViewController ()
 
--(void)toggleHiddenState:(BOOL)shouldHide;
-
 @end
 
 @implementation ViewController
@@ -32,7 +30,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self toggleHiddenState:YES];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bgconnection"]]];
+    
     self.lblLoginStatus.text = @"";
     
     self.loginButton.delegate = self;
@@ -46,15 +45,6 @@
 }
 
 
-#pragma mark - Private method implementation
-
--(void)toggleHiddenState:(BOOL)shouldHide{
-    self.lblUsername.hidden = shouldHide;
-    self.lblEmail.hidden = shouldHide;
-    self.profilePicture.hidden = shouldHide;
-}
-
-
 #pragma mark - FBLoginView Delegate method implementation
 
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{
@@ -62,7 +52,6 @@
 
     
     //[self performSelector:@selector(showMainMenu) withObject:nil];
-    [self toggleHiddenState:NO];
 
 }
 
@@ -93,7 +82,6 @@
 
         [self performSelector:@selector(showMainMenu) withObject:homepageController];
         //[self showMainMenu];
-        [self toggleHiddenState:NO];
         
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -127,7 +115,6 @@
 -(void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView{
     self.lblLoginStatus.text = @"You are logged out";
     
-    [self toggleHiddenState:YES];
 }
 
 // Handle possible errors that can occur during login
@@ -166,7 +153,7 @@
 }
 
 - (void)showMainMenu {
-    [self performSegueWithIdentifier:@"ShowMainMenu" sender:self];
+    //[self performSegueWithIdentifier:@"ShowMainMenu" sender:self];
 }
 
 -(UIColor*)colorWithHexString:(NSString*)hex

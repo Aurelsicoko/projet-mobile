@@ -179,6 +179,8 @@
         CALayer *cellImageLayer = cell.imageView.layer;
         [cellImageLayer setCornerRadius:25];
         [cellImageLayer setMasksToBounds:YES];
+        [cellImageLayer setBorderWidth:2];
+        [cellImageLayer setBorderColor:[[UIColor colorWithRed:1 green:1 blue:1 alpha:0.8] CGColor]];
         cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture", imgfb]]]];
     }else{
         event = [self.owner objectAtIndex:indexPath.row];
@@ -191,6 +193,8 @@
         CALayer *cellImageLayer = cell.imageView.layer;
         [cellImageLayer setCornerRadius:25];
         [cellImageLayer setMasksToBounds:YES];
+        [cellImageLayer setBorderWidth:2];
+        [cellImageLayer setBorderColor:[[UIColor colorWithRed:1 green:1 blue:1 alpha:0.8] CGColor]];
         cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture", imgfb]]]];
     }
     
