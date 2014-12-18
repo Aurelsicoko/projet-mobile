@@ -14,8 +14,8 @@
 		0D494E701A40764B006A3030 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D494E6E1A40764B006A3030 /* CFNetwork.framework */; };
 		0D494E711A40764B006A3030 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D494E6F1A40764B006A3030 /* CoreData.framework */; };
 		0DA866CD1A41E91900687AF2 /* InviteFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA866CC1A41E91900687AF2 /* InviteFriendsTableViewController.m */; };
-		0DA866D11A42308600687AF2 /* SplashScreen640960.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA866D01A42308600687AF2 /* SplashScreen640960.png */; };
-		0DA866D31A42330C00687AF2 /* splashscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA866D21A42330C00687AF2 /* splashscreen.png */; };
+		0DA866D11A42308600687AF2 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA866D01A42308600687AF2 /* SplashScreen.png */; };
+		0DA866D31A42330C00687AF2 /* splashscreenold.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA866D21A42330C00687AF2 /* splashscreenold.png */; };
 		0DA866D51A4235EC00687AF2 /* bgNavigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA866D41A4235EC00687AF2 /* bgNavigationBar.png */; };
 		24F311E678E67962ECF667FC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6FBC3082E825F9C7C6E5BEE /* libPods.a */; };
 		653E92D01A402FF100D54665 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653E92CF1A402FF100D54665 /* AddEventViewController.m */; };
@@ -51,8 +51,8 @@
 		0D494E6F1A40764B006A3030 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0DA866CB1A41E91900687AF2 /* InviteFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InviteFriendsTableViewController.h; path = ../InviteFriendsTableViewController.h; sourceTree = "<group>"; };
 		0DA866CC1A41E91900687AF2 /* InviteFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InviteFriendsTableViewController.m; path = ../InviteFriendsTableViewController.m; sourceTree = "<group>"; };
-		0DA866D01A42308600687AF2 /* SplashScreen640960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen640960.png; sourceTree = "<group>"; };
-		0DA866D21A42330C00687AF2 /* splashscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splashscreen.png; path = chopacho/Images.xcassets/LaunchImage.launchimage/splashscreen.png; sourceTree = "<group>"; };
+		0DA866D01A42308600687AF2 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
+		0DA866D21A42330C00687AF2 /* splashscreenold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splashscreenold.png; path = chopacho/Images.xcassets/LaunchImage.launchimage/splashscreenold.png; sourceTree = "<group>"; };
 		0DA866D41A4235EC00687AF2 /* bgNavigationBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgNavigationBar.png; path = images/bgNavigationBar.png; sourceTree = "<group>"; };
 		653E92CE1A402FF100D54665 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
 		653E92CF1A402FF100D54665 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
@@ -121,8 +121,8 @@
 		0DA866CF1A42307B00687AF2 /* splashscreen */ = {
 			isa = PBXGroup;
 			children = (
-				0DA866D01A42308600687AF2 /* SplashScreen640960.png */,
-				0DA866D21A42330C00687AF2 /* splashscreen.png */,
+				0DA866D01A42308600687AF2 /* SplashScreen.png */,
+				0DA866D21A42330C00687AF2 /* splashscreenold.png */,
 			);
 			name = splashscreen;
 			sourceTree = "<group>";
@@ -304,8 +304,8 @@
 				0D2356591A42EF9F00EC6939 /* SourceSansPro-Light.otf in Resources */,
 				0D2356541A42E9E100EC6939 /* SourceSansPro-Semibold.otf in Resources */,
 				658572991A3F316C00B3A6B8 /* Main.storyboard in Resources */,
-				0DA866D31A42330C00687AF2 /* splashscreen.png in Resources */,
-				0DA866D11A42308600687AF2 /* SplashScreen640960.png in Resources */,
+				0DA866D31A42330C00687AF2 /* splashscreenold.png in Resources */,
+				0DA866D11A42308600687AF2 /* SplashScreen.png in Resources */,
 				6585729E1A3F316C00B3A6B8 /* LaunchScreen.xib in Resources */,
 				0DA866D51A4235EC00687AF2 /* bgNavigationBar.png in Resources */,
 				0D2356571A42EBA200EC6939 /* SourceSansPro-Regular.otf in Resources */,
