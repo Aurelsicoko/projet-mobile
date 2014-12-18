@@ -168,9 +168,30 @@
     NSMutableArray *event;
     
     if (self.owner.count == 0) {
+
         event = [self.participated objectAtIndex:indexPath.row];
+        
+        NSMutableArray *event = [self.participated objectAtIndex:indexPath.row];
+        cell.textLabel.text = (NSString *)[event valueForKey:@"title"];
+        
+        NSMutableArray *eventcreate = [event valueForKeyPath:@"createdBy"];
+        NSString *imgfb = (NSString *)[eventcreate valueForKey:@"facebook_id"];
+        CALayer *cellImageLayer = cell.imageView.layer;
+        [cellImageLayer setCornerRadius:25];
+        [cellImageLayer setMasksToBounds:YES];
+        cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture", imgfb]]]];
     }else{
         event = [self.owner objectAtIndex:indexPath.row];
+        
+        NSMutableArray *event = [self.owner objectAtIndex:indexPath.row];
+        cell.textLabel.text = (NSString *)[event valueForKey:@"title"];
+        
+        NSMutableArray *eventcreate = [event valueForKeyPath:@"createdBy"];
+        NSString *imgfb = (NSString *)[eventcreate valueForKey:@"facebook_id"];
+        CALayer *cellImageLayer = cell.imageView.layer;
+        [cellImageLayer setCornerRadius:25];
+        [cellImageLayer setMasksToBounds:YES];
+        cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture", imgfb]]]];
     }
     
     cell.textLabel.text = (NSString *)[event valueForKey:@"title"];
@@ -195,7 +216,9 @@
         // The user has accepted (blue)
         cell.contentView.backgroundColor = [UIColor colorWithRed:0.31 green:0.651 blue:0.878 alpha:1];
     }
-    
+
+    cell.contentView.layer.borderColor = [[UIColor whiteColor] CGColor];
+    cell.contentView.layer.borderWidth = 5;
 
     return cell;
 }
