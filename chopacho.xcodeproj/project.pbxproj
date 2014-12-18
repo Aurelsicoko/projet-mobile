@@ -73,6 +73,7 @@
 		6587E7821A3F8AA20084EDC1 /* Homepage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Homepage.h; sourceTree = "<group>"; };
 		6587E7831A3F8AA20084EDC1 /* Homepage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Homepage.m; sourceTree = "<group>"; };
 		65AC67D21A436D4C009CF23F /* bgconnection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgconnection.png; sourceTree = "<group>"; };
+		65AC67D41A43700A009CF23F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6D8B5D778F2097EB70A992E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7D0ADD0AF9E09247CC8EE364 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B6FBC3082E825F9C7C6E5BEE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +164,7 @@
 				6587E7831A3F8AA20084EDC1 /* Homepage.m */,
 				0DA866CB1A41E91900687AF2 /* InviteFriendsTableViewController.h */,
 				0DA866CC1A41E91900687AF2 /* InviteFriendsTableViewController.m */,
+				65AC67D41A43700A009CF23F /* ViewController.h */,
 				658572951A3F316C00B3A6B8 /* ViewController.m */,
 				658572971A3F316C00B3A6B8 /* Main.storyboard */,
 				0D4550BE1A43163F00C9D610 /* EventViewController.h */,

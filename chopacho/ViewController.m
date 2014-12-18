@@ -85,7 +85,7 @@
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", facebookID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            //////////////////////////////////////////////NSLog(@"JSON: %@", responseObject);
+            NSLog(@"JSON: %@", responseObject);
             
             if ([responseObject count] == 0)
             {
@@ -96,14 +96,14 @@
                 
                 NSDictionary *parameters = @{@"facebook_id": facebookID, @"username": @"Aurélien Georget", @"device":self.deviceID};
                 [manager POST:@"http://chaudpaschaud.herokuapp.com/user" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                    ////////////////////////////////////////////////NSLog(@"JSON: %@", responseObject);
+                    NSLog(@"JSON: %@", responseObject);
                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                    ////////////////////////////////////////////////////////NSLog(@"Error: %@", error);
+                    NSLog(@"Error: %@", error);
                 }];
                 
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            //////////////////////////////////////////////////////////////NSLog(@"Error: %@", error);
+            NSLog(@"Error: %@", error);
         }];
 
     }];
@@ -133,13 +133,13 @@
         
         // If the user has cancelled a login, we will do nothing.
     } else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryUserCancelled) {
-        //////////////////////////////////////////////////////////////NSLog(@"user cancelled login");
+        NSLog(@"user cancelled login");
         
         // For simplicity, this sample handles other errors with a generic message
     } else {
         alertTitle  = @"Something went wrong";
         alertMessage = @"Please try again later.";
-        //////////////////////////////////////////////////////////////NSLog(@"Unexpected error:%@", error);
+        NSLog(@"Unexpected error:%@", error);
     }
     
     if (alertMessage) {
@@ -152,7 +152,7 @@
 }
 
 - (void)showMainMenu {
-    //[self performSegueWithIdentifier:@"ShowMainMenu" sender:self];
+    [self performSegueWithIdentifier:@"ShowMainMenu" sender:self];
 }
 
 -(UIColor*)colorWithHexString:(NSString*)hex
