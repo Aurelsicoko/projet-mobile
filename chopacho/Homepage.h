@@ -26,6 +26,8 @@
 
 @property (nonatomic) NSMutableArray *owner;
 @property (nonatomic) NSMutableArray *participated;
+@property (nonatomic) NSMutableArray *tmpOwner;
+@property (nonatomic) NSMutableArray *tmpParticipated;
 @property (nonatomic) NSMutableDictionary *user;
 @property (nonatomic) NSMutableArray *cellSegue;
 

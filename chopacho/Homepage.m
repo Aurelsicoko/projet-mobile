@@ -48,7 +48,7 @@
 - (IBAction)showHostEvents:(id)sender {
     NSLog(@"SHOW HOST EVENTS");
     self.owner = [[NSMutableArray alloc] init];
-    self.participated = [self.user valueForKey:@"participated"];
+    self.participated = self.tmpParticipated;
     
     [self.eventTableView reloadData];
     
@@ -57,10 +57,9 @@
     NSLog(@"SHOW INVITE EVENTS");
     
     self.participated = [[NSMutableArray alloc] init];
-    self.owner = [self.user valueForKey:@"owner"];
+    self.owner = self.tmpOwner;
     
     [self.eventTableView reloadData];
-    
     
 }
 
@@ -104,7 +103,31 @@
 
         self.user = (NSMutableDictionary*)responseObject;
         self.owner = [self.user valueForKey:@"owner"];
-        self.participated = [self.user valueForKey:@"participated"];
+        self.tmpOwner = self.owner;
+        
+        NSMutableArray *friends = [self.user valueForKey:@"participated"];
+        NSMutableArray *participated = [[NSMutableArray alloc] init];
+        for (int i = 0; i < friends.count; i++)
+        {
+            NSMutableArray *readed = [friends[i] valueForKey:@"readed"];
+            if(readed.count > 0){
+                for (int o = 0; o < readed.count; o++)
+                {
+                    NSMutableArray *read = [readed[o] valueForKey:self.lblFacebookID];
+                    if(read){
+                        NSString *value = (NSString *)[read valueForKey:@"readed"];
+                        if([value isEqualToString:@"true"] || [value isEqualToString:@"1"]){
+                            [participated addObject:friends[i]];
+                        }
+                    } else {
+                        [participated addObject:friends[i]];
+                    }
+                }
+            }
+        }
+        
+        self.participated = participated;
+        self.tmpParticipated = self.participated;
         
         [self.eventTableView reloadData];
         
@@ -165,8 +188,8 @@
     if(accept.count == 0){
         // The user hasn't answered
         cell.contentView.backgroundColor = [UIColor colorWithRed:0.753 green:0.729 blue:0.675 alpha:1];
-    }else {
-        // The user has accepted
+    } else {
+        // The user has accepted (blue)
         cell.contentView.backgroundColor = [UIColor colorWithRed:0.31 green:0.651 blue:0.878 alpha:1];
     }
     
