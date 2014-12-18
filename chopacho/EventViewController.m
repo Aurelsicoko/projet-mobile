@@ -55,8 +55,28 @@
         [labelTimer setCornerRadius:35];
         [labelTimer setMasksToBounds:YES];
         
-        [self.backEventBar setTitle:@""];
-        [self.backEventBar setImage: nil];
+        NSMutableArray *theEvent = self.cellSegue;
+        NSMutableArray *readed = [theEvent valueForKey:@"readed"];
+        NSMutableArray *alreadyAnswered = [[NSMutableArray alloc] init];
+        if(readed.count > 0) {
+            for (int o = 0; o < readed.count; o++)
+            {
+                NSMutableArray *read = [readed[o] valueForKey:self.lblFacebookID];
+                if(read){
+                    [alreadyAnswered addObject:readed[o]];
+                }
+            }
+        }
+        
+        if([alreadyAnswered count] == 0){
+            [self.backEventBar setTitle:@""];
+            [self.backEventBar setImage: nil];
+        } else {
+            [self.acceptButton setHidden:YES];
+            [self.refuseButton setHidden:YES];
+            [self.timerLabel setHidden:YES];
+        }
+
     }
     
     
@@ -64,10 +84,38 @@
     [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/event/%@", [event valueForKey:@"id"]] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
        NSLog(@"JSON: %@", responseObject);
         
-        NSMutableDictionary *response = (NSMutableDictionary*)responseObject;
-        self.invitedUser = [[response valueForKey:@"guests"] objectAtIndex:0];
+        //NSMutableDictionary *response = (NSMutableDictionary*)responseObject;
         
-            NSLog(@"EVENT VIEW CONTROLLER %@", self.invitedUser);
+        NSMutableArray *theEvent = responseObject;
+        NSMutableArray *guests = [[theEvent valueForKey:@"guests"] objectAtIndex:0];
+        NSMutableArray *readed = [[theEvent valueForKey:@"readed"] objectAtIndex:0];
+        NSMutableArray *guestsWithoutRefused = [[NSMutableArray alloc] init];
+        for (int i = 0; i < guests.count; i++)
+        {
+            NSString *guestFacebookID = (NSString *)[guests[i] valueForKey:@"facebook_id"];
+            
+                BOOL _boolean = NO;
+                for (int o = 0; o < readed.count; o++)
+                {
+                    NSMutableArray *read = [readed[o] valueForKey:guestFacebookID];
+                    
+                    if(read){
+                        _boolean = YES;
+                        NSString *value = (NSString *)[read valueForKey:@"readed"];
+                        if([value isEqualToString:@"true"] || [value isEqualToString:@"1"]) {
+                            [guestsWithoutRefused addObject:guests[i]];
+                        }
+                    }
+                }
+            
+            if(_boolean == NO){
+                [guestsWithoutRefused addObject:guests[i]];
+            }
+        }
+        
+        self.invitedUser = guestsWithoutRefused;
+        
+        NSLog(@"EVENT VIEW CONTROLLER %@", self.invitedUser);
         
         [self.participatedUsersTableView reloadData];
         

@@ -59,6 +59,7 @@
     self.participated = [[NSMutableArray alloc] init];
     self.owner = self.tmpOwner;
     
+    [self viewDidLoad];
     [self.eventTableView reloadData];
     
 }
@@ -77,6 +78,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self refreshData];
+    
     // Style
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bgNavigationBar.png"] forBarMetrics:UIBarMetricsDefault];
     
@@ -88,19 +91,13 @@
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+-(void)refreshData {
     //GET information in user with facebook id
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *idfacebook = self.lblFacebookID;
     
     [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", idfacebook] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-
+        
         self.user = (NSMutableDictionary*)responseObject;
         self.owner = [self.user valueForKey:@"owner"];
         self.tmpOwner = self.owner;
@@ -110,11 +107,14 @@
         for (int i = 0; i < events.count; i++)
         {
             NSMutableArray *readed = [events[i] valueForKey:@"readed"];
-            if(readed.count > 0) {
+            if([readed count] == 0){
+                [participated addObject:events[i]];
+            } else {
                 BOOL _boolean = NO;
                 for (int o = 0; o < readed.count; o++)
                 {
                     NSMutableArray *read = [readed[o] valueForKey:self.lblFacebookID];
+                    
                     if(read){
                         if(_boolean == NO){
                             _boolean = YES;
@@ -125,6 +125,7 @@
                             }
                         }
                     }
+                    
                 }
             }
         }
@@ -137,6 +138,17 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self refreshData];
 }
 
 
