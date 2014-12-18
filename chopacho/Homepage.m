@@ -32,6 +32,29 @@
         controller.friendsList = self.friendsList;
     }
     
+    if([segue.identifier isEqualToString:@"singleEventIdentifier"]){
+        EventViewController *controller = (EventViewController *)segue.destinationViewController;
+        controller.cellSegue = [self.participated objectAtIndex:selectedIndex];
+    }
+    
+}
+- (IBAction)showHostEvents:(id)sender {
+    NSLog(@"SHOW HOST EVENTS");
+    self.owner = [[NSMutableArray alloc] init];
+    self.participated = [self.user valueForKey:@"participated"];
+    
+    [self.eventTableView reloadData];
+    
+}
+- (IBAction)showInvitedEvents:(id)sender {
+    NSLog(@"SHOW INVITE EVENTS");
+    
+    self.participated = [[NSMutableArray alloc] init];
+    self.owner = [self.user valueForKey:@"owner"];
+    
+    [self.eventTableView reloadData];
+    
+    
 }
 
 - (IBAction)addEventView:(id)sender {
@@ -63,30 +86,11 @@
 //
         self.user = (NSMutableDictionary*)responseObject;
         self.owner = [self.user valueForKey:@"owner"];
+        self.participated = [self.user valueForKey:@"participated"];
+        
+        NSLog(@"%@", self.user);
         
         [self.eventTableView reloadData];
-//
-//        
-//         NSLog(@"OWNER %@", responseObject['owner']);
-        
-      //  NSError * error;
-        
-      //  NSMutableDictionary  *json = [NSJSONSerialization JSONObjectWithData:responseObject options: NSJSONReadingMutableContainers error: &error];
-        /*NSArray *jsonowner = [json valueForKeyPath:@"owner"];
-
-        NSMutableArray *test = [NSMutableArray array];
-        for (NSDictionary *owner in jsonowner)
-        {
-            //create our object
-           // NSString *title = [item objectForKey:@"title"];
-            //Add the object to our animal array
-            //[test addObject:title];
-        }*/
-        
-       // NSLog(@"The content of array is%@",test);
-        
-        
-        
         
         if ([responseObject count] == 0)
         {
@@ -116,7 +120,6 @@
     [self performSegueWithIdentifier:@"addEventButton" sender:self];
 }
 
-
 #pragma mark - UITableView delegate methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -126,29 +129,29 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.owner.count;
+    return (self.owner.count == 0) ? self.participated.count :self.owner.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString * cellIdentifier = @"cellIdentifier";
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if(cell==nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    if (self.owner.count == 0) {
+        NSMutableArray *event = [self.participated objectAtIndex:indexPath.row];
+        cell.textLabel.text = (NSString *)[event valueForKey:@"title"];
+    }else{
+        NSMutableArray *event = [self.owner objectAtIndex:indexPath.row];
+        cell.textLabel.text = (NSString *)[event valueForKey:@"title"];
     }
    
-    NSMutableArray *event = [self.owner objectAtIndex:indexPath.row];
-    cell.textLabel.text = (NSString *)[event valueForKey:@"title"];
-
-    
     cell.contentView.backgroundColor = [UIColor colorWithRed:0.753 green:0.729 blue:0.675 alpha:1];
-    
 
-    
     return cell;
 }
 

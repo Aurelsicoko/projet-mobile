@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AddEventViewController.h"
+#import "EventViewController.h"
 
 @interface Homepage : UIViewController
 
@@ -16,6 +17,8 @@
 @property (nonatomic) NSString *lblEmail;
 
 @property (nonatomic) NSString *lblFacebookID;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *showInviteButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *showHostButton;
 
 @property (nonatomic) NSMutableArray *friendsList;
 
@@ -24,6 +27,7 @@
 @property (nonatomic) NSMutableArray *owner;
 @property (nonatomic) NSMutableArray *participated;
 @property (nonatomic) NSMutableDictionary *user;
+@property (nonatomic) NSMutableArray *cellSegue;
 
 
 
