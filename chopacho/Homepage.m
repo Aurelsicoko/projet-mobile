@@ -84,7 +84,6 @@
     }];
     
     // Style
-    
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bgNavigationBar.png"] forBarMetrics:UIBarMetricsDefault];
     
     if ([self.eventTableView respondsToSelector:@selector(setSeparatorInset:)])

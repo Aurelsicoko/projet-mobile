@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *inviteFriendsButton;
 
 @property (nonatomic) NSMutableArray *friendsList;
+@property (weak, nonatomic) IBOutlet UIButton *createEventButton;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "AddEventViewController.h"
 #import "AFNetworking.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AddEventViewController ()
 
@@ -33,6 +34,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [[self.descriptionTextView layer] setBorderColor:[[UIColor colorWithRed:0.843 green:0.855 blue:0.867 alpha:1] CGColor]];
+    [[self.descriptionTextView layer] setBorderWidth:1];
+    [[self.descriptionTextView layer] setCornerRadius:5];
+    [self.descriptionTextView setTextContainerInset:UIEdgeInsetsMake(10, 4, 4, 4)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,9 +50,8 @@
     // Go back to the previous view
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 - (IBAction)submitEventButton:(id)sender {
-    
+
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"title": self.titleEventTextField.text, @"author": self.lblFacebookID, @"content":self.descriptionTextView.text, @"readed": @"[]", @"guests" : self.friendsList};
     NSLog(@"%@", parameters);

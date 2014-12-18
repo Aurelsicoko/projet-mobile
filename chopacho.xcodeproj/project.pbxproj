@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D2356541A42E9E100EC6939 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D2356531A42E9E100EC6939 /* SourceSansPro-Semibold.otf */; };
+		0D2356571A42EBA200EC6939 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D2356561A42EBA200EC6939 /* SourceSansPro-Regular.otf */; };
+		0D2356591A42EF9F00EC6939 /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D2356581A42EF9F00EC6939 /* SourceSansPro-Light.otf */; };
 		0D494E701A40764B006A3030 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D494E6E1A40764B006A3030 /* CFNetwork.framework */; };
 		0D494E711A40764B006A3030 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D494E6F1A40764B006A3030 /* CoreData.framework */; };
 		0DA866CD1A41E91900687AF2 /* InviteFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA866CC1A41E91900687AF2 /* InviteFriendsTableViewController.m */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D2356531A42E9E100EC6939 /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Semibold.otf"; path = "/Library/Fonts/SourceSansPro-Semibold.otf"; sourceTree = "<absolute>"; };
+		0D2356561A42EBA200EC6939 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Regular.otf"; path = "../../../../../Library/Fonts/SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
+		0D2356581A42EF9F00EC6939 /* SourceSansPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Light.otf"; path = "../../../../../Library/Fonts/SourceSansPro-Light.otf"; sourceTree = "<group>"; };
 		0D494E6E1A40764B006A3030 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		0D494E6F1A40764B006A3030 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0DA866CB1A41E91900687AF2 /* InviteFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InviteFriendsTableViewController.h; path = ../InviteFriendsTableViewController.h; sourceTree = "<group>"; };
@@ -89,6 +95,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D2356551A42E9FC00EC6939 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0D2356561A42EBA200EC6939 /* SourceSansPro-Regular.otf */,
+				0D2356531A42E9E100EC6939 /* SourceSansPro-Semibold.otf */,
+				0D2356581A42EF9F00EC6939 /* SourceSansPro-Light.otf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
 		0DA866CE1A42307500687AF2 /* assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,13 +126,14 @@
 		658572811A3F316C00B3A6B8 = {
 			isa = PBXGroup;
 			children = (
+				0D2356551A42E9FC00EC6939 /* fonts */,
 				0DA866CE1A42307500687AF2 /* assets */,
-				0D494E6E1A40764B006A3030 /* CFNetwork.framework */,
-				0D494E6F1A40764B006A3030 /* CoreData.framework */,
-				6587E7801A3F5D800084EDC1 /* FacebookSDK.framework */,
 				6585728C1A3F316C00B3A6B8 /* chopacho */,
 				658572A61A3F316C00B3A6B8 /* chopachoTests */,
 				6585728B1A3F316C00B3A6B8 /* Products */,
+				0D494E6E1A40764B006A3030 /* CFNetwork.framework */,
+				0D494E6F1A40764B006A3030 /* CoreData.framework */,
+				6587E7801A3F5D800084EDC1 /* FacebookSDK.framework */,
 				EC7E803B683FE53F5F1A2A48 /* Frameworks */,
 				FDA366D8DF47357BFDF58BE0 /* Pods */,
 			);
@@ -277,11 +294,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D2356591A42EF9F00EC6939 /* SourceSansPro-Light.otf in Resources */,
+				0D2356541A42E9E100EC6939 /* SourceSansPro-Semibold.otf in Resources */,
 				658572991A3F316C00B3A6B8 /* Main.storyboard in Resources */,
 				0DA866D31A42330C00687AF2 /* splashscreen.png in Resources */,
 				0DA866D11A42308600687AF2 /* SplashScreen640960.png in Resources */,
 				6585729E1A3F316C00B3A6B8 /* LaunchScreen.xib in Resources */,
 				0DA866D51A4235EC00687AF2 /* bgNavigationBar.png in Resources */,
+				0D2356571A42EBA200EC6939 /* SourceSansPro-Regular.otf in Resources */,
 				6585729B1A3F316C00B3A6B8 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

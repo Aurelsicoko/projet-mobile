@@ -97,6 +97,11 @@
     NSMutableDictionary *d = (NSMutableDictionary*)[self.facebookFriendsList objectAtIndex:indexPath.row];
     cell.textLabel.text = [d valueForKey:@"name"];
     cell.accessibilityValue = [d valueForKey:@"id"];
+    // Rounded Rect for cell image
+    CALayer *cellImageLayer = cell.imageView.layer;
+    [cellImageLayer setCornerRadius:21];
+    [cellImageLayer setMasksToBounds:YES];
+    cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture", cell.accessibilityValue]]]];
     
     return cell;
 }
@@ -106,7 +111,8 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if(cell.accessoryType == UITableViewCellAccessoryNone)
     {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        //cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmark.png"]];
         [self.selectedItemsArray insertObject:cell.accessibilityValue atIndex:indexPath.row];
     }
     else
