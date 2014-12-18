@@ -56,9 +56,18 @@
 
         NSLog(@"JSON: %@", responseObject);
         
-        NSError * error;
+         NSMutableDictionary *jsonowner = (NSMutableDictionary*)[responseObject valueForKeyPath:@"owner"];
+         NSArray *owner = [jsonowner valueForKey:@"title"];
         
-//        NSMutableDictionary  *json = [NSJSONSerialization JSONObjectWithData:responseObject options: NSJSONReadingMutableContainers error: &error];
+         NSMutableDictionary *jsonoparticipated = (NSMutableDictionary*)[responseObject valueForKeyPath:@"participated"];
+         NSArray *participated = [jsonoparticipated valueForKey:@"title"];
+        
+         NSLog(@"!!!!!!!!!! %@",owner);
+         NSLog(@"!!!!!!!!!! %@",participated);
+        
+      //  NSError * error;
+        
+      //  NSMutableDictionary  *json = [NSJSONSerialization JSONObjectWithData:responseObject options: NSJSONReadingMutableContainers error: &error];
         /*NSArray *jsonowner = [json valueForKeyPath:@"owner"];
 
         NSMutableArray *test = [NSMutableArray array];
@@ -145,11 +154,15 @@
     }
     
     NSInteger index = [indexPath row];
-    // la y'a le tableau[index]
+    cell.textLabel.text = [_owner objectAtIndex:index];
     
     cell.contentView.backgroundColor = [UIColor colorWithRed:0.753 green:0.729 blue:0.675 alpha:1];
     
-    [[cell textLabel] setText:@"Mon texte"];
+    
+    //[[cell textLabel] setText:@"Mon texte"];
+    
+    NSLog(@"!!!!!!!!!! %@",_owner);
+    NSLog(@"!!!!!!!!!! %@",_participated);
     
     return cell;
 }

@@ -21,6 +21,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *eventTableView;
 
+@property (nonatomic) NSMutableArray *owner;
+@property (nonatomic) NSMutableArray *participated;
+
 
 
 @end
