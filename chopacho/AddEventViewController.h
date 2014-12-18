@@ -21,6 +21,6 @@
 @property (weak, nonatomic) IBOutlet NSString *lblFacebookID;
 @property (weak, nonatomic) IBOutlet UIButton *inviteFriendsButton;
 
-@property (weak, nonatomic) IBOutlet NSMutableArray *friendsList;
+@property (nonatomic) NSMutableArray *friendsList;
 
 @end

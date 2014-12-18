@@ -28,11 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableViewData = [NSArray arrayWithObjects:@"Oeuf", @"Mayonnaise", @"Moutarde",@"Moutarde", @"Moutarde",@"Moutarde",nil];
-    [self.selectedItemsArray removeObjectIdenticalTo:[NSNull null]];
-    
     int i=0;
-    for (i = 0; i < [self.tableViewData count]; i++)
+    for (i = 0; i < self.facebookFriendsList.count; i++)
     {
         [self.selectedItemsArray addObject:[NSNull null]];
     }
@@ -75,7 +72,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.tableViewData count];
+    return self.facebookFriendsList.count;
 }
 
 
@@ -97,7 +94,9 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
-    cell.textLabel.text = [self.tableViewData objectAtIndex:indexPath.row];
+    NSMutableDictionary *d = (NSMutableDictionary*)[self.facebookFriendsList objectAtIndex:indexPath.row];
+    cell.textLabel.text = [d valueForKey:@"name"];
+    cell.accessibilityValue = [d valueForKey:@"id"];
     
     return cell;
 }
@@ -108,7 +107,7 @@
     if(cell.accessoryType == UITableViewCellAccessoryNone)
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [self.selectedItemsArray insertObject:cell.textLabel.text atIndex:indexPath.row];
+        [self.selectedItemsArray insertObject:cell.accessibilityValue atIndex:indexPath.row];
     }
     else
     {

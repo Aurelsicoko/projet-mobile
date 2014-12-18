@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @protocol SecondDelegate <NSObject>
 - (void) secondViewControllerDismissed:(NSMutableArray *)friendsList;
@@ -22,8 +23,9 @@
 @property (strong, nonatomic) IBOutlet UITableView *friendsList;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *submitFriendsList;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelFriendsList;
-@property (weak, nonatomic) IBOutlet NSArray *tableViewData;
+@property (weak, nonatomic) IBOutlet NSMutableArray *tableViewData;
 @property (strong, nonatomic) IBOutlet NSMutableArray *selectedItemsArray;
+@property (nonatomic) NSArray *facebookFriendsList;
 
 
 @end

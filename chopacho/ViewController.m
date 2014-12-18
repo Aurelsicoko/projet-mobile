@@ -18,10 +18,12 @@
 @implementation ViewController
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
     if([segue.identifier isEqualToString:@"ShowMainMenu"])
     {
         Homepage *controller = (Homepage *)segue.destinationViewController;
         controller.lblFacebookID = self.lblFacebookID;
+        controller.friendsList = self.friendsList;
     }
 }
 
@@ -59,7 +61,7 @@
     self.lblLoginStatus.text = @"You are logged in.";
 
     
-    [self performSelector:@selector(showMainMenu) withObject:nil];
+    //[self performSelector:@selector(showMainMenu) withObject:nil];
     [self toggleHiddenState:NO];
 
 }
@@ -68,77 +70,60 @@
 
     NSLog(@"%@", user);
     
-    NSMutableArray *appFriendUsers = [[NSMutableArray alloc] init];
-    
-    [[FBRequest requestForGraphPath:@"/me/taggable_friends"]
-     startWithCompletionHandler:
-     ^(FBRequestConnection *connection,
-       NSDictionary *result,
-       NSError *error) {
-         
-         //if result, no errors
-         if (!error && result)
-         {
-             //result dictionary in key "data"
-             NSArray *allFriendsList = [result objectForKey:@"data"];
-             
-             if ([allFriendsList count] > 0)
-             {
-                 // Loop
-                 for (NSDictionary *aFriendData in allFriendsList) {
-                     // Friend installed app?
-                     if ([aFriendData objectForKey:@"installed"]) {
-                         
-                         [appFriendUsers addObject: [aFriendData objectForKey:@"id"]];
-                         break;
-                     }
-                 }
-                 
-                 NSLog(@"%@", appFriendUsers);
-             }
-         }
-     }];
+    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                  NSDictionary* result,
+                                                  NSError *error) {
+        self.friendsList = [result objectForKey:@"data"];
+//        NSLog(@"Found: %i friends", friends.count);
+//        for (NSDictionary<FBGraphUser>* friend in friends) {
+//            NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+//        }
+        
+        
+        self.profilePicture.profileID = user.objectID;
+        
+        self.lblFacebookID = [user objectForKey:@"id"];
+        NSString *facebookID = self.lblFacebookID;
+        
+        self.lblUsername.text = @"init";
+        self.lblUsername.text = [user objectForKey:@"name"];
+        
+        self.lblEmail.text = @"init";
+        self.lblEmail.text = [user objectForKey:@"email"];
+        
+        Homepage *homepageController = [[Homepage alloc] init];
+        homepageController.lblFacebookID = self.lblFacebookID;
+        homepageController.friendsList = self.friendsList;
 
-    self.profilePicture.profileID = user.objectID;
-    
-    self.lblFacebookID = [user objectForKey:@"id"];
-    NSString *facebookID = self.lblFacebookID;
-    
-    self.lblUsername.text = @"init";
-    self.lblUsername.text = [user objectForKey:@"name"];
-    
-    self.lblEmail.text = @"init";
-    self.lblEmail.text = [user objectForKey:@"email"];
-    
-    Homepage *homepageController = [[Homepage alloc] init];
-    homepageController.lblFacebookID = self.lblFacebookID;
-    
-    [self performSelector:@selector(showMainMenu) withObject:homepageController];
-    //[self showMainMenu];
-    [self toggleHiddenState:NO];
-    
+        [self performSelector:@selector(showMainMenu) withObject:homepageController];
+        //[self showMainMenu];
+        [self toggleHiddenState:NO];
+        
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", facebookID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            //////////////////////////////////////////////NSLog(@"JSON: %@", responseObject);
+            
+            if ([responseObject count] == 0)
+            {
+                
+                //IF empty POST information about user in user
+                UIDevice *device = [UIDevice currentDevice];
+                self.deviceID = [[device identifierForVendor]UUIDString];
+                
+                NSDictionary *parameters = @{@"facebook_id": facebookID, @"username": @"Aurélien Georget", @"device":self.deviceID};
+                [manager POST:@"http://chaudpaschaud.herokuapp.com/user" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    ////////////////////////////////////////////////NSLog(@"JSON: %@", responseObject);
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    ////////////////////////////////////////////////////////NSLog(@"Error: %@", error);
+                }];
+                
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            //////////////////////////////////////////////////////////////NSLog(@"Error: %@", error);
+        }];
 
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", facebookID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //////////////////////////////////////////////NSLog(@"JSON: %@", responseObject);
-
-        if ([responseObject count] == 0)
-        {
-            
-            //IF empty POST information about user in user
-            UIDevice *device = [UIDevice currentDevice];
-            self.deviceID = [[device identifierForVendor]UUIDString];
-            
-            NSDictionary *parameters = @{@"facebook_id": facebookID, @"username": @"Aurélien Georget", @"device":self.deviceID};
-            [manager POST:@"http://chaudpaschaud.herokuapp.com/user" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                ////////////////////////////////////////////////NSLog(@"JSON: %@", responseObject);
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                ////////////////////////////////////////////////////////NSLog(@"Error: %@", error);
-            }];
-            
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        //////////////////////////////////////////////////////////////NSLog(@"Error: %@", error);
     }];
 
 }

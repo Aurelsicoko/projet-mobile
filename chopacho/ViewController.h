@@ -26,5 +26,7 @@
 
 @property (weak, nonatomic) NSString *lblFacebookID;
 
+@property (weak, nonatomic) NSArray *friendsList;
+
 
 @end

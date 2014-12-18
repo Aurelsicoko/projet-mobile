@@ -29,6 +29,7 @@
     {
         AddEventViewController *controller = (AddEventViewController *)segue.destinationViewController;
         controller.lblFacebookID = self.lblFacebookID;
+        controller.friendsList = self.friendsList;
     }
     
 }
@@ -37,6 +38,7 @@
     
     AddEventViewController *addEventController = [[AddEventViewController alloc] init];
     addEventController.lblFacebookID = self.lblFacebookID;
+    addEventController.friendsList = self.friendsList;
 
     [self performSelector:@selector(addEventButton) withObject:addEventController];
 
@@ -51,7 +53,6 @@
     NSString *idfacebook = self.lblFacebookID;
     
     [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", idfacebook] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
         if ([responseObject count] == 0)
         {
         NSLog(@"Error: vide");

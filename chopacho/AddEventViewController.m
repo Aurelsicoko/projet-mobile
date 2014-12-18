@@ -20,6 +20,7 @@
     if ([segue.identifier isEqualToString:@"chooseFriends"]) {
         InviteFriendsTableViewController *controller = (InviteFriendsTableViewController *)segue.destinationViewController;
         controller.myDelegate = self;
+        controller.facebookFriendsList = self.friendsList;
     }
 }
 
@@ -46,16 +47,10 @@
 
 - (IBAction)submitEventButton:(id)sender {
     
-    NSString *guests;
-    
-    if([self.friendsList count]){
-        guests = [self.friendsList componentsJoinedByString:@","];
-    } else {
-        guests = @"[]";
-    }
+    NSMutableArray *readed = [NSMutableArray alloc];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"title": self.titleEventTextField.text, @"author": self.lblFacebookID, @"content":self.descriptionTextView.text, @"readed": @"[]", @"guests" : guests};
+    NSDictionary *parameters = @{@"title": self.titleEventTextField.text, @"author": self.lblFacebookID, @"content":self.descriptionTextView.text, @"readed": readed, @"guests" : self.friendsList};
     NSLog(@"%@", parameters);
     [manager POST:@"http://chaudpaschaud.herokuapp.com/event/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
