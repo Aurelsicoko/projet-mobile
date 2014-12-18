@@ -104,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "chopacho/EventViewController.m"
-            timestampString = "440625913.219438"
+            timestampString = "440628383.382131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "chopacho/EventViewController.m"
-            timestampString = "440625913.219438"
+            timestampString = "440628383.382131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "-acceptEvent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "chopacho/EventViewController.m"
-            timestampString = "440625529.715215"
+            timestampString = "440628383.382131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-timerTick:"
             landmarkType = "5">
          </BreakpointContent>

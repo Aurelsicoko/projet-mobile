@@ -21,11 +21,6 @@
     
     self.participatedUsersTableView.dataSource = self;
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
-    CALayer *labelTimer = self.timerLabel.layer;
-    [labelTimer setCornerRadius:35];
-    [labelTimer setMasksToBounds:YES];
-    
     NSMutableArray *event = self.cellSegue;
     NSMutableArray *owner = [event valueForKey:@"createdBy"];
     self.usernameLabel.text = (NSString *)[owner valueForKey:@"username"];
@@ -49,6 +44,18 @@
     if([(NSString *)[owner valueForKey:@"facebook_id"] isEqualToString:self.lblFacebookID]){
         [self.acceptButton setHidden:YES];
         [self.refuseButton setHidden:YES];
+        [self.timerLabel setHidden:YES];
+        
+        
+    } else {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
+        CALayer *labelTimer = self.timerLabel.layer;
+        
+        [labelTimer setCornerRadius:35];
+        [labelTimer setMasksToBounds:YES];
+        
+        [self.backEventBar setTitle:@""];
+        [self.backEventBar setImage: nil];
     }
     
     
