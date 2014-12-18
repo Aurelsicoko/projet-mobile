@@ -102,6 +102,7 @@
     [cellImageLayer setCornerRadius:25];
     [cellImageLayer setMasksToBounds:YES];
     cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture", cell.accessibilityValue]]]];
+    cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmarkNone.png"]];
     
     return cell;
 }
@@ -111,13 +112,14 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if(cell.accessoryType == UITableViewCellAccessoryNone)
     {
-        //cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
         cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmark.png"]];
         [self.selectedItemsArray insertObject:cell.accessibilityValue atIndex:indexPath.row];
     }
     else
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmarkNone.png"]];
         [self.selectedItemsArray removeObjectAtIndex:indexPath.row];
     }
     

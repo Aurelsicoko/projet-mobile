@@ -50,7 +50,6 @@
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{
     self.lblLoginStatus.text = @"You are logged in.";
 
-    
     //[self performSelector:@selector(showMainMenu) withObject:nil];
 
 }

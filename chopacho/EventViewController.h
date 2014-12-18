@@ -20,8 +20,10 @@
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
 @property (nonatomic) NSMutableArray *cellSegue;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *refuseButton;
 @property (weak, nonatomic) IBOutlet UIButton *acceptButton;
 @property (nonatomic) NSMutableArray *invitedUser;
+@property (nonatomic) NSTimer *timer;
 @end
