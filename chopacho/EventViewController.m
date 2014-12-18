@@ -113,6 +113,7 @@
             }
         }
         
+        
         self.invitedUser = guestsWithoutRefused;
         
         NSLog(@"EVENT VIEW CONTROLLER %@", self.invitedUser);

@@ -8,12 +8,15 @@
 
 #import "ViewController.h"
 #import "AFNetworking.h"
+#import <Parse/Parse.h>
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
@@ -55,8 +58,6 @@
 }
 
 -(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
-
-    NSLog(@"%@", user);
     
     FBRequest* friendsRequest = [FBRequest requestForMyFriends];
     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
@@ -85,7 +86,7 @@
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", facebookID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"JSON: %@", responseObject);
+            
             
             if ([responseObject count] == 0)
             {
