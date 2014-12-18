@@ -53,6 +53,28 @@
     NSString *idfacebook = self.lblFacebookID;
     
     [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", idfacebook] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        NSLog(@"JSON: %@", responseObject);
+        
+        NSError * error;
+        
+//        NSMutableDictionary  *json = [NSJSONSerialization JSONObjectWithData:responseObject options: NSJSONReadingMutableContainers error: &error];
+        /*NSArray *jsonowner = [json valueForKeyPath:@"owner"];
+
+        NSMutableArray *test = [NSMutableArray array];
+        for (NSDictionary *owner in jsonowner)
+        {
+            //create our object
+           // NSString *title = [item objectForKey:@"title"];
+            //Add the object to our animal array
+            //[test addObject:title];
+        }*/
+        
+       // NSLog(@"The content of array is%@",test);
+        
+        
+        
+        
         if ([responseObject count] == 0)
         {
         NSLog(@"Error: vide");

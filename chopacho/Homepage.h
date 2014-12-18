@@ -17,7 +17,7 @@
 
 @property (nonatomic) NSString *lblFacebookID;
 
-@property (nonatomic) NSArray *friendsList;
+@property (nonatomic) NSMutableArray *friendsList;
 
 @property (weak, nonatomic) IBOutlet UITableView *eventTableView;
 

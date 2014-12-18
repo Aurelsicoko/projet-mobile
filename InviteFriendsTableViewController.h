@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelFriendsList;
 @property (weak, nonatomic) IBOutlet NSMutableArray *tableViewData;
 @property (strong, nonatomic) IBOutlet NSMutableArray *selectedItemsArray;
-@property (nonatomic) NSArray *facebookFriendsList;
+@property (nonatomic) NSMutableArray *facebookFriendsList;
 
 
 @end
