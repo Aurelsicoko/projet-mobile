@@ -54,16 +54,20 @@
     
     [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", idfacebook] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
-        NSLog(@"JSON: %@", responseObject);
         
-         NSMutableDictionary *jsonowner = (NSMutableDictionary*)[responseObject valueForKeyPath:@"owner"];
-         NSArray *owner = [jsonowner valueForKey:@"title"];
+//         NSMutableDictionary *jsonowner = (NSMutableDictionary*)[responseObject valueForKeyPath:@"owner"];
+//         NSArray *owner = [jsonowner valueForKey:@"title"];
+//        
+//         NSMutableDictionary *jsonoparticipated = (NSMutableDictionary*)[responseObject valueForKeyPath:@"participated"];
+//         NSArray *participated = [jsonoparticipated valueForKey:@"title"];
+//
+        self.user = (NSMutableDictionary*)responseObject;
+        self.owner = [self.user valueForKey:@"owner"];
         
-         NSMutableDictionary *jsonoparticipated = (NSMutableDictionary*)[responseObject valueForKeyPath:@"participated"];
-         NSArray *participated = [jsonoparticipated valueForKey:@"title"];
-        
-         NSLog(@"!!!!!!!!!! %@",owner);
-         NSLog(@"!!!!!!!!!! %@",participated);
+        [self.eventTableView reloadData];
+//
+//        
+//         NSLog(@"OWNER %@", responseObject['owner']);
         
       //  NSError * error;
         
@@ -115,36 +119,20 @@
 
 #pragma mark - UITableView delegate methods
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    // Return the number of rows in the section.
+    return self.owner.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row % 2 == 1){
-        return 10;
-    } else {
-        return 70;
-    }
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString * cellIdentifier = @"cellIdentifier";
-    
-    if (indexPath.row % 2 == 1) {
-        UITableViewCell * cell2 = [tableView dequeueReusableCellWithIdentifier:@"cellInvisible"];
-        
-        if (cell2 == nil) {
-            cell2 = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellInvisible"];
-            [cell2.contentView setAlpha:0];
-            [cell2 setUserInteractionEnabled:NO]; // prevent selection and other stuff
-        }
-        
-        return cell2;
-    }
-
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -152,17 +140,14 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:cellIdentifier];
     }
-    
-    NSInteger index = [indexPath row];
-    cell.textLabel.text = [_owner objectAtIndex:index];
+   
+    NSMutableArray *event = [self.owner objectAtIndex:indexPath.row];
+    cell.textLabel.text = (NSString *)[event valueForKey:@"title"];
+
     
     cell.contentView.backgroundColor = [UIColor colorWithRed:0.753 green:0.729 blue:0.675 alpha:1];
     
-    
-    //[[cell textLabel] setText:@"Mon texte"];
-    
-    NSLog(@"!!!!!!!!!! %@",_owner);
-    NSLog(@"!!!!!!!!!! %@",_participated);
+
     
     return cell;
 }

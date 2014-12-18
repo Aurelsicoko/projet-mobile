@@ -23,6 +23,7 @@
 
 @property (nonatomic) NSMutableArray *owner;
 @property (nonatomic) NSMutableArray *participated;
+@property (nonatomic) NSMutableDictionary *user;
 
 
 

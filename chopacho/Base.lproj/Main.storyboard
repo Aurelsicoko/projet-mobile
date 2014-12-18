@@ -131,7 +131,7 @@
                                 <rect key="frame" x="0.0" y="135" width="600" height="465"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="EventsTableViewCell" selectionStyle="default" indentationWidth="10" id="0Xk-sJ-l0k">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="EventsTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentifier" id="0Xk-sJ-l0k">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Xk-sJ-l0k" id="PUk-vV-Xyt">
@@ -139,13 +139,6 @@
                                             <color key="backgroundColor" red="0.75294117650000003" green="0.72941176470000002" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.75294117647058822" green="0.72941176470588232" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellInvisible" id="tPl-dQ-2uJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tPl-dQ-2uJ" id="VcI-XT-Voo">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
