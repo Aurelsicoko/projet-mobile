@@ -34,7 +34,13 @@
     
     if([segue.identifier isEqualToString:@"singleEventIdentifier"]){
         EventViewController *controller = (EventViewController *)segue.destinationViewController;
-        controller.cellSegue = [self.participated objectAtIndex:selectedIndex];
+        
+        if (self.owner.count == 0) {
+            controller.cellSegue = [self.participated objectAtIndex:selectedIndex];
+        }else{
+            controller.cellSegue = [self.owner objectAtIndex:selectedIndex];
+        }
+        
     }
     
 }
@@ -131,7 +137,6 @@
     // Return the number of rows in the section.
     return (self.owner.count == 0) ? self.participated.count :self.owner.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     

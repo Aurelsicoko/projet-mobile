@@ -10,7 +10,7 @@
 #import "AddEventViewController.h"
 #import "EventViewController.h"
 
-@interface Homepage : UIViewController
+@interface Homepage : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnAddEvent;
 
