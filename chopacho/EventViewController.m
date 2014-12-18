@@ -22,9 +22,12 @@
     self.participatedUsersTableView.dataSource = self;
 
     
+    
     NSMutableArray *event = self.cellSegue;
     NSMutableArray *owner = [event valueForKey:@"createdBy"];
     self.usernameLabel.text = (NSString *)[owner valueForKey:@"username"];
+    
+    NSLog(@"%@", event);
     
     self.titleLabel.text = (NSString *)[event valueForKey:@"title"];
     self.descriptionTextView.text = (NSString *)[event valueForKey:@"content"];
@@ -39,6 +42,11 @@
     
     [cellImageLayer setBorderColor: [[UIColor colorWithRed:0.659 green:0.839 blue:0.945 alpha:1] CGColor]];
     [cellImageLayer setBorderWidth: 5.0];
+    
+    if([(NSString *)[owner valueForKey:@"facebook_id"] isEqualToString:self.lblFacebookID]){
+        [self.acceptButton setHidden:YES];
+        [self.refuseButton setHidden:YES];
+    }
     
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

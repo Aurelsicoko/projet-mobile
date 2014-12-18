@@ -105,22 +105,25 @@
         self.owner = [self.user valueForKey:@"owner"];
         self.tmpOwner = self.owner;
         
-        NSMutableArray *friends = [self.user valueForKey:@"participated"];
+        NSMutableArray *events = [self.user valueForKey:@"participated"];
         NSMutableArray *participated = [[NSMutableArray alloc] init];
-        for (int i = 0; i < friends.count; i++)
+        for (int i = 0; i < events.count; i++)
         {
-            NSMutableArray *readed = [friends[i] valueForKey:@"readed"];
-            if(readed.count > 0){
+            NSMutableArray *readed = [events[i] valueForKey:@"readed"];
+            if(readed.count > 0) {
+                BOOL _boolean = NO;
                 for (int o = 0; o < readed.count; o++)
                 {
                     NSMutableArray *read = [readed[o] valueForKey:self.lblFacebookID];
                     if(read){
-                        NSString *value = (NSString *)[read valueForKey:@"readed"];
-                        if([value isEqualToString:@"true"] || [value isEqualToString:@"1"]){
-                            [participated addObject:friends[i]];
+                        if(_boolean == NO){
+                            _boolean = YES;
+                            NSString *value = (NSString *)[read valueForKey:@"readed"];
+                            
+                            if([value isEqualToString:@"true"] || [value isEqualToString:@"1"]) {
+                                [participated addObject:events[i]];
+                            }
                         }
-                    } else {
-                        [participated addObject:friends[i]];
                     }
                 }
             }

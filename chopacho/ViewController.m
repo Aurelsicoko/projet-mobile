@@ -74,12 +74,7 @@
     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
                                                   NSDictionary* result,
                                                   NSError *error) {
-        self.friendsList = [result objectForKey:@"data"];
-//        NSLog(@"Found: %i friends", friends.count);
-//        for (NSDictionary<FBGraphUser>* friend in friends) {
-//            NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
-//        }
-        
+        self.friendsList = [result objectForKey:@"data"];        
         
         self.profilePicture.profileID = user.objectID;
         
