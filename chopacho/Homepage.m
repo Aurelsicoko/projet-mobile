@@ -150,12 +150,32 @@
     if (self.owner.count == 0) {
         NSMutableArray *event = [self.participated objectAtIndex:indexPath.row];
         cell.textLabel.text = (NSString *)[event valueForKey:@"title"];
+        
+        NSMutableArray *eventcreate = [event valueForKeyPath:@"createdBy"];
+        NSString *imgfb = (NSString *)[eventcreate valueForKey:@"facebook_id"];
+        CALayer *cellImageLayer = cell.imageView.layer;
+        [cellImageLayer setCornerRadius:25];
+        [cellImageLayer setMasksToBounds:YES];
+        cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture", imgfb]]]];
+        
     }else{
         NSMutableArray *event = [self.owner objectAtIndex:indexPath.row];
         cell.textLabel.text = (NSString *)[event valueForKey:@"title"];
+        
+        NSMutableArray *eventcreate = [event valueForKeyPath:@"createdBy"];
+        NSString *imgfb = (NSString *)[eventcreate valueForKey:@"facebook_id"];
+        CALayer *cellImageLayer = cell.imageView.layer;
+        [cellImageLayer setCornerRadius:25];
+        [cellImageLayer setMasksToBounds:YES];
+        cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture", imgfb]]]];
     }
    
     cell.contentView.backgroundColor = [UIColor colorWithRed:0.753 green:0.729 blue:0.675 alpha:1];
+    cell.contentView.layer.borderColor = [[UIColor whiteColor] CGColor];
+    cell.contentView.layer.borderWidth = 5;
+    
+    
+    
 
     return cell;
 }
