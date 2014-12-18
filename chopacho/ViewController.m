@@ -11,8 +11,6 @@
 
 @interface ViewController ()
 
--(void)toggleHiddenState:(BOOL)shouldHide;
-
 @end
 
 @implementation ViewController
@@ -32,7 +30,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self toggleHiddenState:YES];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bgconnection"]]];
+    
     self.lblLoginStatus.text = @"";
     
     self.loginButton.delegate = self;
@@ -46,22 +45,13 @@
 }
 
 
-#pragma mark - Private method implementation
-
--(void)toggleHiddenState:(BOOL)shouldHide{
-    self.lblUsername.hidden = shouldHide;
-    self.lblEmail.hidden = shouldHide;
-    self.profilePicture.hidden = shouldHide;
-}
-
-
 #pragma mark - FBLoginView Delegate method implementation
 
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView{
     self.lblLoginStatus.text = @"You are logged in.";
 
     //[self performSelector:@selector(showMainMenu) withObject:nil];
-    [self toggleHiddenState:NO];
+
 }
 
 -(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
@@ -91,12 +81,11 @@
 
         [self performSelector:@selector(showMainMenu) withObject:homepageController];
         //[self showMainMenu];
-        [self toggleHiddenState:NO];
         
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/user/%@", facebookID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            //////////////////////////////////////////////NSLog(@"JSON: %@", responseObject);
+            NSLog(@"JSON: %@", responseObject);
             
             if ([responseObject count] == 0)
             {
@@ -107,14 +96,14 @@
                 
                 NSDictionary *parameters = @{@"facebook_id": facebookID, @"username": @"Aurélien Georget", @"device":self.deviceID};
                 [manager POST:@"http://chaudpaschaud.herokuapp.com/user" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                    ////////////////////////////////////////////////NSLog(@"JSON: %@", responseObject);
+                    NSLog(@"JSON: %@", responseObject);
                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                    ////////////////////////////////////////////////////////NSLog(@"Error: %@", error);
+                    NSLog(@"Error: %@", error);
                 }];
                 
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            //////////////////////////////////////////////////////////////NSLog(@"Error: %@", error);
+            NSLog(@"Error: %@", error);
         }];
 
     }];
@@ -125,7 +114,6 @@
 -(void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView{
     self.lblLoginStatus.text = @"You are logged out";
     
-    [self toggleHiddenState:YES];
 }
 
 // Handle possible errors that can occur during login
@@ -145,13 +133,13 @@
         
         // If the user has cancelled a login, we will do nothing.
     } else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryUserCancelled) {
-        //////////////////////////////////////////////////////////////NSLog(@"user cancelled login");
+        NSLog(@"user cancelled login");
         
         // For simplicity, this sample handles other errors with a generic message
     } else {
         alertTitle  = @"Something went wrong";
         alertMessage = @"Please try again later.";
-        //////////////////////////////////////////////////////////////NSLog(@"Unexpected error:%@", error);
+        NSLog(@"Unexpected error:%@", error);
     }
     
     if (alertMessage) {

@@ -36,6 +36,7 @@
     CALayer *cellImageLayer = self.profilePicture.layer;
     [cellImageLayer setCornerRadius:48];
     [cellImageLayer setMasksToBounds:YES];
+    
     self.profilePicture.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?type=large", (NSString *)[owner valueForKey:@"facebook_id"]]]]];
     
     [cellImageLayer setBorderColor: [[UIColor colorWithRed:0.659 green:0.839 blue:0.945 alpha:1] CGColor]];
