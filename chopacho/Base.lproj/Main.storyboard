@@ -232,6 +232,7 @@
                                 <items>
                                     <navigationItem id="vZ3-OJ-iLd">
                                         <barButtonItem key="leftBarButtonItem" title="Item" image="backChevron" id="cAr-AJ-AfK">
+                                            <inset key="imageInsets" minX="0.0" minY="-50" maxX="0.0" maxY="0.0"/>
                                             <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="backEvent:" destination="wdA-cf-WNh" id="jM5-9E-hZh"/>
@@ -259,12 +260,9 @@
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g5N-lf-GRD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g5N-lf-GRD">
                                 <rect key="frame" x="0.0" y="360" width="600" height="172"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="228" id="KbU-cC-vve"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="invitedUsersIdentifier" id="xBo-SL-xua">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -431,9 +429,15 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFO-q5-pje">
-                                <rect key="frame" x="16" y="401" width="568" height="30"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <state key="normal" title="Invite your friends"/>
+                                <rect key="frame" x="16" y="401" width="568" height="90"/>
+                                <color key="backgroundColor" red="0.75294125080108643" green="0.729411780834198" blue="0.67843139171600342" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="zpL-NX-FGg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Invite your friends">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <segue destination="jsf-Lx-7Y7" kind="presentation" identifier="chooseFriends" id="HdV-A9-NxZ"/>
                                 </connections>
