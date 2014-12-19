@@ -28,12 +28,10 @@
 - (void)secondViewControllerDismissed:(NSMutableArray *)friendsList
 {
     self.friendsList = friendsList;
-    NSLog(@"String received at FirstVC: %@", self.friendsList);
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     [[self.descriptionTextView layer] setBorderColor:[[UIColor colorWithRed:0.843 green:0.855 blue:0.867 alpha:1] CGColor]];
     [[self.descriptionTextView layer] setBorderWidth:1];
@@ -43,15 +41,12 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)senderCancelEventButton:(id)sender {
-    // Go back to the previous view
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)submitEventButton:(id)sender {
-
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"title": self.titleEventTextField.text, @"author": self.lblFacebookID, @"content":self.descriptionTextView.text, @"readed": @"[]", @"guests" : self.friendsList};
     NSLog(@"%@", parameters);

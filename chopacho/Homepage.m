@@ -18,15 +18,10 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     
     NSInteger selectedIndex = self.eventTableView.indexPathForSelectedRow.row;
     
-    // event at index
-    
-    if([segue.identifier isEqualToString:@"addEventButton"])
-    {
+    if([segue.identifier isEqualToString:@"addEventButton"]) {
         AddEventViewController *controller = (AddEventViewController *)segue.destinationViewController;
         controller.lblFacebookID = self.lblFacebookID;
         controller.friendsList = self.friendsList;
@@ -41,12 +36,10 @@
         }else{
             controller.cellSegue = [self.owner objectAtIndex:selectedIndex];
         }
-        
     }
-    
 }
+
 - (IBAction)showHostEvents:(id)sender {
-    NSLog(@"SHOW HOST EVENTS");
     self.owner = [[NSMutableArray alloc] init];
     self.participated = self.tmpParticipated;
     
@@ -54,33 +47,27 @@
     
 }
 - (IBAction)showInvitedEvents:(id)sender {
-    NSLog(@"SHOW INVITE EVENTS");
-    
     self.participated = [[NSMutableArray alloc] init];
     self.owner = self.tmpOwner;
     
     [self viewDidLoad];
     [self.eventTableView reloadData];
-    
 }
 
 - (IBAction)addEventView:(id)sender {
-    
     AddEventViewController *addEventController = [[AddEventViewController alloc] init];
     addEventController.lblFacebookID = self.lblFacebookID;
     addEventController.friendsList = self.friendsList;
 
     [self performSelector:@selector(addEventButton) withObject:addEventController];
-
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     [self refreshData];
     
-    // Style
+    // Some style
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bgNavigationBar.png"] forBarMetrics:UIBarMetricsDefault];
     
     if ([self.eventTableView respondsToSelector:@selector(setSeparatorInset:)])
@@ -92,7 +79,6 @@
 }
 
 -(void)refreshData {
-    //GET information in user with facebook id
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *idfacebook = self.lblFacebookID;
     
@@ -142,15 +128,12 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
     [self refreshData];
 }
-
 
 - (void)addEventButton {
     [self performSegueWithIdentifier:@"addEventButton" sender:self];
@@ -194,7 +177,7 @@
         [cellImageLayer setBorderWidth:2];
         [cellImageLayer setBorderColor:[[UIColor colorWithRed:1 green:1 blue:1 alpha:0.8] CGColor]];
         cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture", imgfb]]]];
-    }else{
+    } else {
         event = [self.owner objectAtIndex:indexPath.row];
         
         NSMutableArray *event = [self.owner objectAtIndex:indexPath.row];
@@ -238,8 +221,5 @@
 
     return cell;
 }
-
-#pragma mark - Navigation
-
 
 @end

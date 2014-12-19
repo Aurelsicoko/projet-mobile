@@ -17,16 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.participatedUsersTableView.dataSource = self;
     
     NSMutableArray *event = self.cellSegue;
     NSMutableArray *owner = [event valueForKey:@"createdBy"];
+    
     self.usernameLabel.text = (NSString *)[owner valueForKey:@"username"];
-    
-    NSLog(@"%@", event);
-    
     self.titleLabel.text = (NSString *)[event valueForKey:@"title"];
     self.descriptionTextView.text = (NSString *)[event valueForKey:@"content"];
     [self.descriptionTextView setTextColor:[UIColor whiteColor]];
@@ -46,9 +43,8 @@
         [self.acceptButton setHidden:YES];
         [self.refuseButton setHidden:YES];
         [self.timerLabel setHidden:YES];
-        
-        
-    } else {
+    }
+    else {
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
         CALayer *labelTimer = self.timerLabel.layer;
         
@@ -79,12 +75,9 @@
 
     }
     
-    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:[NSString stringWithFormat:@"http://chaudpaschaud.herokuapp.com/event/%@", [event valueForKey:@"id"]] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
        NSLog(@"JSON: %@", responseObject);
-        
-        //NSMutableDictionary *response = (NSMutableDictionary*)responseObject;
         
         NSMutableArray *theEvent = responseObject;
         NSMutableArray *guests = [[theEvent valueForKey:@"guests"] objectAtIndex:0];
@@ -116,8 +109,6 @@
         
         self.invitedUser = guestsWithoutRefused;
         
-        NSLog(@"EVENT VIEW CONTROLLER %@", self.invitedUser);
-        
         [self.participatedUsersTableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -127,7 +118,6 @@
 }
 
 - (void)timerTick:(NSTimer *)timer {
-    
     int tmp = [self.timerLabel.text intValue];
     int value = tmp-1;
     
@@ -143,7 +133,6 @@
 }
 
 - (IBAction)acceptEvent:(id)sender {
-    
     [self.timer invalidate];
     self.timer = nil;
     
@@ -159,7 +148,6 @@
 }
 
 - (IBAction)refuseEvent:(id)sender {
-    
     [self.timer invalidate];
     self.timer = nil;
 
@@ -176,7 +164,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -237,16 +224,5 @@
     
     return cell;
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
